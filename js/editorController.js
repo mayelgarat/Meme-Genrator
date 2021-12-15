@@ -28,6 +28,7 @@ function renderMeme() {
 }
 
 function drawTxt() {
+    // setY();
     const memes = getMeme();
     memes.lines.forEach(line => {
         var text = line.txt;

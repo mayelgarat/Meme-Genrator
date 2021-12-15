@@ -105,6 +105,7 @@ var gMeme = {
 
 function setLineNum() {
     gLine++;
+    document.querySelector('.text').value = ''
 }
 
 function getMeme() {
@@ -136,8 +137,6 @@ function setLineTxt(text) {
     }
     renderMeme();
 }
-
-
 
 
 function setImg(img) {
@@ -172,3 +171,9 @@ function changeFontSize(diff) {
 function changeY(diff) {
     gMeme.lines[gMeme.selectedLineIdx].y += diff;
 }
+
+// function setY() {
+//     if (gMeme.lines[gLine] === 0) y = 50;
+//     else if (gMeme.lines[gLine] === 1) y = gElCanvas.height - 50;
+//     else y = gElCanvas.height / 2;
+// }

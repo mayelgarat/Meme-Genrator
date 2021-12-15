@@ -15,6 +15,7 @@ body {
 
 li {
     cursor: pointer;
+    margin-inline-end: 20px;
 
 }
 
@@ -51,7 +52,16 @@ li {
     width: 450px;
 }
 
+button{
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+}
 
+button img{
+    height: 100%;
+    width: 100%;
+}
 .form{
     display: flex;
     flex-direction: column;
@@ -72,7 +82,7 @@ li {
 
 .clean-list {
     list-style-type: none;
-    margin: 0;
+ 
     padding: 0;
 }
 

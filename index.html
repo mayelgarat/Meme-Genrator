@@ -46,8 +46,8 @@
             <div class="control-box">
                 <form id="form-editor" class="form" onsubmit="onSubmitForm(event)">
                     <div class="text-ontainer">
-                        <label for="email">Enter your text: </label>
-                        <input type="text" name="text" placeholder="text here" oninput="onSetLineTxt(this)">
+                        <label for="text">Enter your text: </label>
+                        <input type="text" name="text" class = "text" placeholder="text here" oninput="onSetLineTxt(this)">
                     </div>
                     <div class="btn-container">
                         <input class="fillColor" type="color" name="color" onchange="onSetFillColor(this)">
@@ -57,8 +57,8 @@
                                 src="/icons/increase font - icon.png"></button>
                         <button class="decrease" onclick="onChangeFontSize(-1)"><img
                                 src="/icons/decrease font - icon.png"></button>
-                        <button class="up" onclick="onChangeY(10)"><i class="fas fa-arrow-up"></i></button>
-                        <button class="down" onclick="onChangeY(-10)"><i class="fas fa-arrow-down"></i></button>
+                        <button class="up" onclick="onChangeY(-10)"><i class="fas fa-arrow-up"></i></button>
+                        <button class="down" onclick="onChangeY(10)"><i class="fas fa-arrow-down"></i></button>
                     </div>
                 </form>
             </div>
