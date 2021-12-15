@@ -1,5 +1,5 @@
 'use strict'
-
+var gLine = 0;
 
 // var gKeywordSearchCountMap = {
 //     'funny': countFunny(),
@@ -93,9 +93,74 @@ var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
     lines: [{
-        txt: 'I sometimes eat Falafel',
-        size: 20,
+        txt: ' ',
+        size: 30,
         align: 'left',
         color: 'red'
     }]
+}
+
+function setLineNum() {
+    gLine++;
+    console.log('gLine', gLine);
+}
+
+
+function getMeme() {
+    return gMeme;
+}
+
+function setLineTxt(text) {
+    // console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx);
+    // console.log('gLine', gLine);
+    // console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx);
+    // if (gLine === gMeme.selectedLineIdx) {
+    //     gMeme.lines[gMeme.selectedLineIdx] = ({
+    //         txt: `${text}`,
+    //         size: 40,
+    //         align: 'center',
+    //         color: 'white'
+    //     })
+    // } else {
+        gMeme.selectedLineIdx++;
+        console.log('gMeme.lines',    gMeme.lines);
+        gMeme.lines.push({
+            txt: `${text}`,
+            size: 40,
+            align: 'center',
+            color: 'white'
+        })
+    // }
+    console.log('gMeme', gMeme);
+    renderMeme();
+}
+
+
+
+
+function setImg(img) {
+    console.log('seting img.....');
+    console.log('img.id', img.id);
+    gMeme = {
+        selectedImgId: img.id,
+        selectedLineIdx: 0,
+        lines: [{
+            txt: '',
+            size: 30,
+            align: 'center',
+            colorFill: 'white',
+            colorStroke: 'white'
+        }]
+    }
+    console.log('gMeme', gMeme);
+    renderMeme();
+}
+
+function SetFillColor(color){
+console.log('elColor.value', elColor.value);
+}
+
+function SetStrokeColor(elColor){
+    console.log('elColor.value', elColor.value);
+
 }

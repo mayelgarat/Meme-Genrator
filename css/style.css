@@ -1,7 +1,7 @@
 /* BASIC */
-* {
+/* * {
     box-sizing: border-box;
-}
+} */
 
 body {
     margin: 0;
@@ -23,9 +23,9 @@ li {
 }
 
 /* GRID */
-.gallery {
+/* .gallery{
     /* display: none; */
-}
+/* }  */
 
 .grid-container {
     display: grid;
@@ -40,13 +40,15 @@ li {
 
 
 /* CANVAS */
-.editor-container {
-    /* background-color: rgb(158, 160, 161); */
-}
+/* .editor-container {
+    background-color: rgb(158, 160, 161);
+} */
 
 .canvas-container {
     margin-inline-start: 50px;
-    /* background-color: lightslategrey; */
+    background-color: lightslategrey;
+    height: 450px;
+    width: 450px;
 }
 
 /* HELPERS */
@@ -75,6 +77,5 @@ li {
     text-decoration: none;
 }
 
-.none {
-    display: none;
-}
+.hidden {
+display: none;}

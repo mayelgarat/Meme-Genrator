@@ -27,23 +27,32 @@
         </div>
     </header>
     <section class="gallery">
-        <main>
-            <div class="grid-container">
-                <!-- <div class="box box1"><img class="grid-img" src="/meme-imgs (square)/1.jpg" onclick="renderMeme(this)">
-                </div> -->
-            </div>
-        </main>
+        <div class = "gallery-container">
+            <main>
+                <div class="grid-container">
+                    <!-- <div class="box box1"><img class="grid-img" src="/meme-imgs (square)/1.jpg" onclick="renderMeme(this)">
+                    </div> -->
+                </div>
+            </main>
+        </div>
     </section>
 
     <section class="editor">
         <div class="editor-container flex space-between">
             <div class="canvas-container">
-                <canvas id="my-canvas" height="450" width="450" onclick="draw(event)">
-                    <img src="/meme-imgs (square)/18.jpg">
+                <canvas id="my-canvas" height="450" width="450">
                 </canvas>
             </div>
-            <div class="control-buttons">
-
+            <div class="control-box">
+                <form id ="form-editor"  onsubmit="onSubmitForm(event)">
+                    <label for="email">Enter your text: </label>
+                    <input type="text" name="text" placeholder="text here" oninput="onSetLineTxt(this)">
+                    <input class = "fillColor" type = "color" name = "color" onchange="onSetFillColor(this)">
+                    <input class = "strokeColor" type = "color" name = "color" onchange="onSetStrokeColor(this)">
+                    <button class = "add" onclick="onSetLine()" ><img src = "/icons/add.png"></button>
+                    <button class = "increase" onclick = "changeFontSize(1)"><img src ="/icons/increase font - icon.png"></button>
+                    <button class = "decrease" onclick = "changeFontSize(-1)"><img src ="/icons/decrease font - icon.png"></button>
+                </form>
             </div>
         </div>
     </section>
