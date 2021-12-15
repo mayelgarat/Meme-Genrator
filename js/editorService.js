@@ -97,43 +97,43 @@ var gMeme = {
         size: 30,
         align: 'left',
         colorFill: 'red',
-        colorStroke: 'black'
+        colorStroke: 'black',
+        x: 50,
+        y: 50,
     }]
 }
 
 function setLineNum() {
     gLine++;
-    console.log('gLine', gLine);
 }
-
 
 function getMeme() {
     return gMeme;
 }
 
 function setLineTxt(text) {
-    // console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx);
-    // console.log('gLine', gLine);
-    // console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx);
     if (gLine === gMeme.selectedLineIdx) {
         gMeme.lines[gMeme.selectedLineIdx] = ({
             txt: `${text}`,
             size: 40,
             align: 'center',
-            color: 'white'
+            colorFill: 'white',
+            colorStroke: 'black',
+            x: 50,
+            y: 50,
         })
     } else {
         gMeme.selectedLineIdx++;
-        console.log('gMeme.lines', gMeme.lines);
         gMeme.lines.push({
             txt: `${text}`,
             size: 40,
             align: 'center',
             colorFill: 'white',
-            colorStroke: 'black'
+            colorStroke: 'black',
+            x: 50,
+            y: 50,
         })
     }
-    console.log('gMeme', gMeme);
     renderMeme();
 }
 
@@ -141,8 +141,6 @@ function setLineTxt(text) {
 
 
 function setImg(img) {
-    console.log('seting img.....');
-    console.log('img.id', img.id);
     gMeme = {
         selectedImgId: img.id,
         selectedLineIdx: 0,
@@ -151,10 +149,11 @@ function setImg(img) {
             size: 30,
             align: 'center',
             colorFill: 'white',
-            colorStroke: 'black'
+            colorStroke: 'black',
+            x: 50,
+            y: 50,
         }]
     }
-    console.log('gMeme', gMeme);
     renderMeme();
 }
 
@@ -168,5 +167,8 @@ function setStrokeColor(color) {
 
 function changeFontSize(diff) {
     gMeme.lines[gMeme.selectedLineIdx].size += diff;
+}
 
+function changeY(diff) {
+    gMeme.lines[gMeme.selectedLineIdx].y += diff;
 }

@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-
+    <script src="https://kit.fontawesome.com/2e533af14a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <title>Meme Generator</title>
 </head>
@@ -27,7 +27,7 @@
         </div>
     </header>
     <section class="gallery">
-        <div class = "gallery-container">
+        <div class="gallery-container">
             <main>
                 <div class="grid-container">
                     <!-- <div class="box box1"><img class="grid-img" src="/meme-imgs (square)/1.jpg" onclick="renderMeme(this)">
@@ -44,14 +44,22 @@
                 </canvas>
             </div>
             <div class="control-box">
-                <form id ="form-editor"  onsubmit="onSubmitForm(event)">
-                    <label for="email">Enter your text: </label>
-                    <input type="text" name="text" placeholder="text here" oninput="onSetLineTxt(this)">
-                    <input class = "fillColor" type = "color" name = "color" onchange="onSetFillColor(this)">
-                    <input class = "strokeColor" type = "color" name = "color" onchange="onSetStrokeColor(this)">
-                    <button class = "add" onclick="onSetLine()" ><img src = "/icons/add.png"></button>
-                    <button class = "increase" onclick = "onChangeFontSize(1)"><img src ="/icons/increase font - icon.png"></button>
-                    <button class = "decrease" onclick = "onChangeFontSize(-1)"><img src ="/icons/decrease font - icon.png"></button>
+                <form id="form-editor" class="form" onsubmit="onSubmitForm(event)">
+                    <div class="text-ontainer">
+                        <label for="email">Enter your text: </label>
+                        <input type="text" name="text" placeholder="text here" oninput="onSetLineTxt(this)">
+                    </div>
+                    <div class="btn-container">
+                        <input class="fillColor" type="color" name="color" onchange="onSetFillColor(this)">
+                        <input class="strokeColor" type="color" name="color" onchange="onSetStrokeColor(this)">
+                        <button class="add" onclick="onSetLine()"><img src="/icons/add.png"></button>
+                        <button class="increase" onclick="onChangeFontSize(1)"><img
+                                src="/icons/increase font - icon.png"></button>
+                        <button class="decrease" onclick="onChangeFontSize(-1)"><img
+                                src="/icons/decrease font - icon.png"></button>
+                        <button class="up" onclick="onChangeY(10)"><i class="fas fa-arrow-up"></i></button>
+                        <button class="down" onclick="onChangeY(-10)"><i class="fas fa-arrow-down"></i></button>
+                    </div>
                 </form>
             </div>
         </div>

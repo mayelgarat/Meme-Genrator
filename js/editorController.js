@@ -29,24 +29,18 @@ function renderMeme() {
 
 function drawTxt() {
     const memes = getMeme();
-    // memes.lines.forEach(line => {
-    // if (line.selectedLineIdx === 0) y = 50
-    // else if ((line.selectedLineIdx === 1)) y = gElCanvas.height - 50
-    // else y = 50 + 30 * line.selectedLineIdx;
-    var text = memes.lines[memes.selectedLineIdx].txt;
-    console.log('text', text);
-    gCtx.textBaseline = 'middle';
-    gCtx.textAlign = memes.lines[memes.selectedLineIdx].align;
-    const fontSize = memes.lines[memes.selectedLineIdx].size;
-    gCtx.font = `${fontSize}px impact`;
-    gCtx.lineWidth = 2;
-    gCtx.strokeStyle = memes.lines[memes.selectedLineIdx].colorStroke;
-    gCtx.fillStyle = `${memes.lines[memes.selectedLineIdx].colorFill}`;
-    console.log(' gCtx.fillStyle', gCtx.fillStyle);
-    console.log(' gCtx.strokeStyle', gCtx.strokeStyle);
-    gCtx.fillText(text, gElCanvas.width / 2, 50);
-    gCtx.strokeText(text, gElCanvas.width / 2, 50);
-    // })
+    memes.lines.forEach(line => {
+        var text = line.txt;
+        gCtx.textBaseline = 'middle';
+        gCtx.textAlign = line.align;
+        const fontSize = line.size;
+        gCtx.font = `${fontSize}px impact`;
+        gCtx.lineWidth = 2;
+        gCtx.strokeStyle = `${line.colorStroke}`;
+        gCtx.fillStyle = `${line.colorFill}`;
+        gCtx.fillText(text, gElCanvas.width / 2, line.y);
+        gCtx.strokeText(text, gElCanvas.width / 2, line.y);
+    })
 }
 
 function onSetLine() {
@@ -55,11 +49,10 @@ function onSetLine() {
 
 
 function onSetLineTxt(elInput) {
-    console.log('elInput.value', elInput.value);
     var text = elInput.value
-    console.log('text', text);
     setLineTxt(text);
-    drawTxt();
+    renderMeme()
+
 }
 
 function onSubmitForm(ev) {
@@ -79,5 +72,10 @@ function onSetFillColor(color) {
 
 function onSetStrokeColor(color) {
     setStrokeColor(color.value)
+    renderMeme();
+}
+
+function onChangeY(diff) {
+    changeY(diff);
     renderMeme();
 }

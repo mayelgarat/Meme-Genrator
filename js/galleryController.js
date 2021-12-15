@@ -20,3 +20,4 @@ function renderImgs() {
     }
     document.querySelector('.grid-container').innerHTML = str;
 }
+

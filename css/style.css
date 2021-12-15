@@ -51,6 +51,18 @@ li {
     width: 450px;
 }
 
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-ontainer{
+    margin-block-end: 20px ;
+}
+
 /* HELPERS */
 
 .flex {
