@@ -1,0 +1,30 @@
+/* BASIC */
+* {
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+/* HELPERS */
+
+.flex {
+    display: flex;
+}
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.flex.align-center {
+    align-items: center;
+}
