@@ -13,26 +13,45 @@
     <title>Meme Generator</title>
 </head>
 
-<body>
+<body onload="init()">
     <header>
         <div class="header-nav flex space-between">
             <div class="logo"><img class="img-logo" src="/LOGO/LOGO.png"></div>
             <nav>
                 <ul class="flex space-between">
-                    <li class="clean-list"><a class="clean-link" href="#">Gallery</a></li>
-                    <li class="clean-list"><a class="clean-link" href="#">Memes</a></li>
-                    <li class="clean-list"><a class="clean-link" href="#">About</a></li>
+                    <li class="clean-list" onclick="goToGallery()">Gallery</li>
+                    <li class="clean-list"> Memes</li>
+                    <li class="clean-list">About</li>
                 </ul>
             </nav>
         </div>
     </header>
-    <main>
-        
-    </main>
+    <section class="gallery">
+        <main>
+            <div class="grid-container">
+                <!-- <div class="box box1"><img class="grid-img" src="/meme-imgs (square)/1.jpg" onclick="renderMeme(this)">
+                </div> -->
+            </div>
+        </main>
+    </section>
 
+    <section class="editor">
+        <div class="editor-container flex space-between">
+            <div class="canvas-container">
+                <canvas id="my-canvas" height="450" width="450" onclick="draw(event)">
+                    <img src="/meme-imgs (square)/18.jpg">
+                </canvas>
+            </div>
+            <div class="control-buttons">
+
+            </div>
+        </div>
+    </section>
 
 </body>
-<script src="js/controller.js"></script>
-<script src="js/service.js"></script>
+<script src="js/galleryService.js"></script>
+<script src="js/editorService.js"></script>
+<script src="js/galleryController.js"></script>
+<script src="js/editorController.js"></script>
 
 </html>
