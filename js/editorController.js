@@ -24,26 +24,26 @@ function renderMeme() {
     document.querySelector('.editor').classList.remove('hidden');
 
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
+    drawTxt()
 }
 
-function drawTxt(txt, x, y) {
+function drawTxt() {
     const memes = getMeme();
     // memes.lines.forEach(line => {
-        // if (line.selectedLineIdx === 0) y = 50
-        // else if ((line.selectedLineIdx === 1)) y = gElCanvas.height - 50
-        // else y = 50 + 30 * line.selectedLineIdx;
-        // txt = line.txt;
-        gCtx.textBaseline = 'middle';
-        console.log('memes.lines[0].align', memes.lines[0].align);
-        // gCtx.textAlign = line.align;
-        const fontSize = 30;
-        // const fontSize = line.size;
-        gCtx.font = `${fontSize}px impact`;
-        gCtx.lineWidth = 2;
-        gCtx.strokeStyle = 'black';
-        gCtx.fillStyle = 'white';
-        gCtx.fillText(txt, x, y);
-        gCtx.strokeText(txt, x, y);
+    // if (line.selectedLineIdx === 0) y = 50
+    // else if ((line.selectedLineIdx === 1)) y = gElCanvas.height - 50
+    // else y = 50 + 30 * line.selectedLineIdx;
+    var text = memes.lines[memes.selectedLineIdx].txt;
+    console.log('text', text);
+    gCtx.textBaseline = 'middle';
+    gCtx.textAlign = memes.lines[memes.selectedLineIdx].align;
+    const fontSize = memes.lines[memes.selectedLineIdx].size;
+    gCtx.font = `${fontSize}px impact`;
+    gCtx.lineWidth = 2;
+    gCtx.strokeStyle = memes.lines[memes.selectedLineIdx].align;
+    gCtx.fillStyle = 'white';
+    gCtx.fillText(text, gElCanvas.width / 2, 50);
+    gCtx.strokeText(text, gElCanvas.width / 2, 50);
     // })
 }
 
@@ -57,7 +57,7 @@ function onSetLineTxt(elInput) {
     var text = elInput.value
     console.log('text', text);
     setLineTxt(text);
-    drawTxt(text, gElCanvas.width / 2, 50);
+    drawTxt();
 }
 
 function onSubmitForm(ev) {
@@ -65,6 +65,7 @@ function onSubmitForm(ev) {
 
 }
 
-function changeFontSize(diff) {
-
+function onChangeFontSize(diff) {
+    changeFontSize(diff);
+renderMeme()
 }

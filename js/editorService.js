@@ -96,7 +96,8 @@ var gMeme = {
         txt: ' ',
         size: 30,
         align: 'left',
-        color: 'red'
+        colorFill: 'red',
+        colorStroke: 'black'
     }]
 }
 
@@ -114,23 +115,24 @@ function setLineTxt(text) {
     // console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx);
     // console.log('gLine', gLine);
     // console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx);
-    // if (gLine === gMeme.selectedLineIdx) {
-    //     gMeme.lines[gMeme.selectedLineIdx] = ({
-    //         txt: `${text}`,
-    //         size: 40,
-    //         align: 'center',
-    //         color: 'white'
-    //     })
-    // } else {
-        gMeme.selectedLineIdx++;
-        console.log('gMeme.lines',    gMeme.lines);
-        gMeme.lines.push({
+    if (gLine === gMeme.selectedLineIdx) {
+        gMeme.lines[gMeme.selectedLineIdx] = ({
             txt: `${text}`,
             size: 40,
             align: 'center',
             color: 'white'
         })
-    // }
+    } else {
+    gMeme.selectedLineIdx++;
+    console.log('gMeme.lines', gMeme.lines);
+    gMeme.lines.push({
+        txt: `${text}`,
+        size: 40,
+        align: 'center',
+        colorFill: 'white',
+        colorStroke: 'black'
+    })
+    }
     console.log('gMeme', gMeme);
     renderMeme();
 }
@@ -156,11 +158,16 @@ function setImg(img) {
     renderMeme();
 }
 
-function SetFillColor(color){
-console.log('elColor.value', elColor.value);
+function SetFillColor(color) {
+    console.log('elColor.value', elColor.value);
 }
 
-function SetStrokeColor(elColor){
+function SetStrokeColor(elColor) {
     console.log('elColor.value', elColor.value);
 
+}
+
+function changeFontSize(diff) {
+    gMeme.lines[gMeme.selectedLineIdx].size += diff;
+   
 }
