@@ -40,8 +40,10 @@ function drawTxt() {
     const fontSize = memes.lines[memes.selectedLineIdx].size;
     gCtx.font = `${fontSize}px impact`;
     gCtx.lineWidth = 2;
-    gCtx.strokeStyle = memes.lines[memes.selectedLineIdx].align;
-    gCtx.fillStyle = 'white';
+    gCtx.strokeStyle = memes.lines[memes.selectedLineIdx].colorStroke;
+    gCtx.fillStyle = `${memes.lines[memes.selectedLineIdx].colorFill}`;
+    console.log(' gCtx.fillStyle', gCtx.fillStyle);
+    console.log(' gCtx.strokeStyle', gCtx.strokeStyle);
     gCtx.fillText(text, gElCanvas.width / 2, 50);
     gCtx.strokeText(text, gElCanvas.width / 2, 50);
     // })
@@ -67,5 +69,15 @@ function onSubmitForm(ev) {
 
 function onChangeFontSize(diff) {
     changeFontSize(diff);
-renderMeme()
+    renderMeme()
+}
+
+function onSetFillColor(color) {
+    setFillColor(color.value)
+    renderMeme();
+}
+
+function onSetStrokeColor(color) {
+    setStrokeColor(color.value)
+    renderMeme();
 }

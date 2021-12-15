@@ -123,15 +123,15 @@ function setLineTxt(text) {
             color: 'white'
         })
     } else {
-    gMeme.selectedLineIdx++;
-    console.log('gMeme.lines', gMeme.lines);
-    gMeme.lines.push({
-        txt: `${text}`,
-        size: 40,
-        align: 'center',
-        colorFill: 'white',
-        colorStroke: 'black'
-    })
+        gMeme.selectedLineIdx++;
+        console.log('gMeme.lines', gMeme.lines);
+        gMeme.lines.push({
+            txt: `${text}`,
+            size: 40,
+            align: 'center',
+            colorFill: 'white',
+            colorStroke: 'black'
+        })
     }
     console.log('gMeme', gMeme);
     renderMeme();
@@ -151,23 +151,22 @@ function setImg(img) {
             size: 30,
             align: 'center',
             colorFill: 'white',
-            colorStroke: 'white'
+            colorStroke: 'black'
         }]
     }
     console.log('gMeme', gMeme);
     renderMeme();
 }
 
-function SetFillColor(color) {
-    console.log('elColor.value', elColor.value);
+function setFillColor(color) {
+    gMeme.lines[gMeme.selectedLineIdx].colorFill = `${color}`;
 }
 
-function SetStrokeColor(elColor) {
-    console.log('elColor.value', elColor.value);
-
+function setStrokeColor(color) {
+    gMeme.lines[gMeme.selectedLineIdx].colorStroke = `${color}`;
 }
 
 function changeFontSize(diff) {
     gMeme.lines[gMeme.selectedLineIdx].size += diff;
-   
+
 }
