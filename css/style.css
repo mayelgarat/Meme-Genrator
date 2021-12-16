@@ -14,6 +14,7 @@
     font-family: 'monserrat-medium';
     src: url('../fonts/Montserrat-Medium.ttf')
 }
+
 /* @font-face {
     font-family: 'monserrat-medium';
     src: url(/fonts/Montserrat-Medium.ttf)
@@ -25,9 +26,13 @@ body {
 }
 
 
-
-
 /* HEADER */
+
+html {
+    background-color: #e3e3e3;
+    ;
+}
+
 .logo {
     width: 100px;
     margin-block-start: 15px;
@@ -55,9 +60,10 @@ li {
 
 .grid-container {
     display: grid;
-    column-gap: 15px;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 25% 25% 25% 25%;
+    column-gap: 10px;
+    row-gap: 10px;
+    grid-template-columns: 50% 50%;
+    /* grid-template-rows: 25% 25% 25% 25%; */
 }
 
 .grid-img {
@@ -72,26 +78,25 @@ li {
 } */
 
 .canvas-container {
-    margin-inline-start: 50px;
-    height: 550px;
-    width: 550px;
-    margin-top: 80px;
+
+    height: 500px;
+    width: 500px;
+    margin-top: -39px;
 }
 
 #my-canvas {
-    margin-block-start: 15px;
+    margin-block-start: 40px;
 }
 
 .editor-container {
-    font-family: monserrat;
-    justify-content: space-around;
     background-color: #e3e3e3;
-    height: 46rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-}
-.control-box{
-    margin-top: 80px;
-}
+
+
 .text {
     font-family: monserrat;
     font-size: 1rem;
@@ -133,7 +138,7 @@ button {
 
 input {
     margin-inline-end: 15px;
-    margin-block-start: 15px;
+    /* margin-block-start: 15px; */
     font-family: monserrat;
     font-size: 2rem;
     border: none;
@@ -167,17 +172,17 @@ button img {
 }
 
 .form {
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
 }
 
 .fillColor,
 .strokeColor {
     width: 40px;
     height: 40px;
-    opacity: 0;
+    opacity: 1;
     transform: translateY(-20px);
 }
 
@@ -194,6 +199,11 @@ button img {
 
 }
 
+.control-box {
+    margin-inline-start: 70px;
+    margin-block-start: 65px;
+
+}
 
 /* HELPERS */
 
@@ -235,7 +245,7 @@ button img {
     position: fixed;
     left: 0;
     text-align: center;
-    height: 150px;
+
 }
 
 .footer-container {
@@ -252,3 +262,118 @@ button img {
 small {
     font-family: monserrat;
 }
+
+
+/* DESKTOP */
+@media screen and (min-width : 1070px) {
+    .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .control-box {
+        margin-top: 80px;
+    }
+
+    .grid-container {
+        display: grid;
+        row-gap: 20px;
+        column-gap: 15px;
+        grid-template-columns: 25% 25% 25% 25%;
+        /* grid-template-rows: 25% 25% 25% 25%; */
+    }
+
+    .editor-container {
+        flex-direction: row;
+        background-color: #e3e3e3;
+        height: 744px;
+        align-items: center;
+        /* justify-content: space-around; */
+    }
+
+    .footer {
+        display: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: #ff7f00;
+        position: fixed;
+        left: 0;
+        text-align: center;
+        height: 150px;
+    }
+
+    .canvas-container {
+        margin-inline-start: 50px;
+        /* height: 550px;
+        width: 550px; */
+        /* margin-top: 10px; */
+
+    }
+
+    #my-canvas {
+        margin-block-start: 15px;
+        /* width: 550px;
+        height: 550px; */
+    }
+
+}
+
+/* MEDIUM
+@media screen and (min-width : 700px) {
+    .canvas-container {
+        margin-inline-start: 200px;
+        height: 400px;
+        width: 400px;
+        margin-top: -23px;
+    }
+
+    #my-canvas {
+        margin-block-start: 15px;
+        width: 400px;
+        height: 400px;
+    }
+
+    .editor-container {
+        font-family: monserrat;
+        justify-content: space-around;
+        background-color: #e3e3e3;
+        height: 52rem;
+
+    }
+
+    .footer {
+        display: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: #ff7f00;
+        position: fixed;
+        left: 0;
+        text-align: center;
+
+    }
+
+} */
+
+/* 
+@media screen and (max-width : 700px) {
+    .editor-container {
+        flex-direction: column;
+        font-family: monserrat;
+        background-color: #e3e3e3;
+        height: 46rem;
+        justify-content: center;
+
+    }
+
+    .footer {
+        display: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: #ff7f00;
+        position: fixed;
+        left: 0;
+        text-align: center;
+
+    }
+} */

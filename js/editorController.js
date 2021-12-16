@@ -9,8 +9,16 @@ function init() {
     // resizeCanvas()
 }
 
+function getCanvasHeight() {
+    return gElCanvas.height;
+}
+
+function getCanvasWidth() {
+    return gElCanvas.width;
+}
+
 function resizeCanvas() {
-    var elContainer = document.querySelector('.canvas-container')
+    var elContainer = document.querySelector('#my-canvas')
     gElCanvas.width = elContainer.offsetWidth
     gElCanvas.height = elContainer.offsetHeight
 }
@@ -119,10 +127,8 @@ function onSetAlign(alignment) {
 
 }
 
+function downloadCanvas(elLink) {
 
-
-function downloadImg(elLink) {
     var imgContent = gElCanvas.toDataURL('image/png')
     elLink.href = imgContent
 }
-

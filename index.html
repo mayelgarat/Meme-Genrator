@@ -17,13 +17,14 @@
     <header class="header">
         <div class="header-nav flex space-between">
             <div class="logo"><img class="img-logo" src="./LOGO/LOGO.png"></div>
-            <nav>
-                <ul class="flex space-between">
+            <nav id="mainMenu">
+                <ul class="flex">
                     <li class="clean-list" onclick="goToGallery()">Gallery</li>
                     <li class="clean-list"> Memes</li>
                     <li class="clean-list">About</li>
                 </ul>
             </nav>
+            <!-- <button class="toggle-menu-btn" onclick="toggleMenu()" alt="Open main menu">☰</button> -->
         </div>
     </header>
     <section class="gallery">
@@ -43,7 +44,7 @@
     <section class="editor">
         <div class="editor-container flex">
             <div class="canvas-container">
-                <canvas id="my-canvas" height="550" width="550">
+                <canvas id="my-canvas" height="500" width="500">
                 </canvas>
             </div>
             <div class="control-box">
@@ -79,17 +80,17 @@
                                 onchange="onSetFillColor(this)">
                             <img class="img-fill" src="./icons/paint-board-and-brush.png"></button>
                         <button class="stroke">
-                            <input class="strokeColor" type="color" name="color" onchange="onSetStrokeColor(this)">
-                            <img class="img-stroke" src="./icons/text stroke.png">
+                            <label for="color-stroke"> <img class="img-stroke" src="./icons/text stroke.png"></label>
+                            <!-- <img class="img-stroke" src="./icons/text stroke.png"> -->
                         </button>
+
+                        <input class="strokeColor" type="color" name="color-stroke" onchange="onSetStrokeColor(this)">
+                        <!-- <button><label for="head">hi</label></button> -->
                     </div>
                     <div>
-                        <a href="#" class="btn" onclick="downloadImg(this)" download="my-canvas.jpg"><button
-                                class="download">
-                                Download
-                            </button></a>
+                        <button class="download"><a class = "clean-link" href="#" onclick="downloadCanvas(this)">Download</a></button>
+              
                     </div>
-
             </div>
             </form>
         </div>
@@ -103,11 +104,15 @@
             <small>all rights reserved 2019</small>
         </div>
     </footer>
-
+    <script>
+        function toggleMenu() {
+            document.body.classList.toggle('menu-open')
+        }
+    </script>
 </body>
 <script src="js/galleryService.js"></script>
 <script src="js/editorService.js"></script>
-<script src="js/galleryController.js"></script>
 <script src="js/editorController.js"></script>
+<script src="js/galleryController.js"></script>
 
 </html>
