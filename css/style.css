@@ -71,6 +71,14 @@ li {
     cursor: pointer;
 }
 
+.datalist-container{
+    background-color: white;
+    margin-block-end:10px ;
+}
+.search{
+    height: 30px;
+}
+
 
 /* CANVAS */
 /* .editor-container {
@@ -123,19 +131,6 @@ button {
     padding: 6px;
 }
 
-.fill,
-.stroke {
-    transform: translateY(24px);
-}
-
-.img-fill {
-    transform: translateY(-190%);
-}
-
-.img-stroke {
-    transform: translateY(-191%);
-}
-
 input {
     margin-inline-end: 15px;
     /* margin-block-start: 15px; */
@@ -178,11 +173,15 @@ button img {
 
 }
 
+.img-fill, .img-stroke{
+    pointer-events: none;
+}
+
 .fillColor,
 .strokeColor {
-    width: 40px;
-    height: 40px;
-    opacity: 1;
+    width: 5px;
+    height: 5px;
+    opacity: 0;
     transform: translateY(-20px);
 }
 

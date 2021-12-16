@@ -28,6 +28,20 @@
         </div>
     </header>
     <section class="gallery">
+        <div class = "datalist-container">
+            <img class="search" src="./icons/search-icon.png">
+            <input list="browsers">
+
+            <datalist id="browsers">
+                <option value="funny">
+                <option value="cute">
+                <option value="dogs">
+                <option value="cats">
+                <option value="sad">
+                <option value="happy">
+                <option value="sarcastic">
+            </datalist>
+        </div>
         <div class="gallery-container">
             <main>
                 <div class="grid-container">
@@ -76,20 +90,21 @@
                         <select class="font">
                             <option>Impact</option>
                         </select>
-                        <button class="fill"><input class="fillColor" type="color" name="color"
-                                onchange="onSetFillColor(this)">
-                            <img class="img-fill" src="./icons/paint-board-and-brush.png"></button>
-                        <button class="stroke">
-                            <label for="color-stroke"> <img class="img-stroke" src="./icons/text stroke.png"></label>
-                            <!-- <img class="img-stroke" src="./icons/text stroke.png"> -->
-                        </button>
+                        <input class="strokeColor" type="color" name="color-stroke" id="stroke"
+                            onchange="onSetStrokeColor(this)">
 
-                        <input class="strokeColor" type="color" name="color-stroke" onchange="onSetStrokeColor(this)">
-                        <!-- <button><label for="head">hi</label></button> -->
+                        <button class="stroke">
+                            <label for="stroke"> <img class="img-stroke" src="./icons/text stroke.png"></label>
+                        </button>
+                        <button class="fill">
+                            <label for="fill"> <img class="img-fill" src="./icons/paint-board-and-brush.png"></label>
+                        </button>
+                        <input class="fillColor" id="fill" type="color" name="color" onchange="onSetFillColor(this)">
+
                     </div>
                     <div>
-                        <button class="download"><a class = "clean-link" href="#" onclick="downloadCanvas(this)">Download</a></button>
-              
+                        <button class="download"><a class="clean-link" href="#"
+                                onclick="downloadCanvas(this)">Download</a></button>
                     </div>
             </div>
             </form>

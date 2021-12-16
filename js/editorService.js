@@ -194,10 +194,12 @@ function switchLine() {
     var length = gMeme.lines.length
     if (gMeme.selectedLineIdx === length) gMeme.selectedLineIdx = -1;
     gMeme.selectedLineIdx++
-    // gMeme.lines.forEach((line, idx) => {
-    //     if (idx === gMeme.selectedLineIdx) line.active = true;
-    //     else line.active = false;
+    gMeme.lines.forEach((line, idx) => {
+        if (idx === gMeme.selectedLineIdx) line.active = true;
+        else line.active = false;
+})
 }
+
 
 function deleteLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1);

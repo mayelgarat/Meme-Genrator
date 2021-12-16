@@ -33,6 +33,7 @@ function renderMeme() {
 
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
     drawTxt()
+   
 }
 
 function drawTxt() {
@@ -90,9 +91,10 @@ function onChangeY(diff) {
 
 function onSwitchLine() {
     switchLine()
-    //  clearCanvas();
-    // renderMeme()
+    // clearCanvas();
+    renderMeme();
     // drawRect();
+
 }
 
 function onDeleteLine() {
@@ -102,17 +104,21 @@ function onDeleteLine() {
 
 // function drawRect() {
 //     const memes = getMeme();
-//     var currLine = memes.selectedLineIdx
-//     // console.log('memes.lines[currLine].active', memes.lines[currLine].active);
-//     // if (!memes.lines[currLine].active) return
-//     var startHeight = memes.lines[currLine].y - memes.lines[currLine].size / 2
-//     var endHeight = startHeight + memes.lines[currLine].size / 2
-//     console.log('currLine', currLine);
-//     console.log('startHeight', startHeight);
-//     console.log('endHeight', endHeight);
-//     gCtx.rect(0, startHeight, gElCanvas.width, endHeight);
-//     gCtx.strokeStyle = '#1b1b1b';
-//     gCtx.stroke();
+//     console.log(memes.lines);
+//     // var currLine = memes.selectedLineIdx
+
+//     memes.lines.forEach((line, idx) => {
+//         // console.log('currLine', currLine);
+//         if (idx === memes.selectedLineIdx) {
+//             var startHeight = line.y - line.size / 2
+//             var endHeight = startHeight + line.size / 2
+
+//             gCtx.rect(0, startHeight, gElCanvas.width, endHeight);
+//             gCtx.strokeStyle = '#1b1b1b';
+//             gCtx.stroke();
+
+//         }
+//     })
 // }
 
 
