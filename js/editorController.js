@@ -33,11 +33,13 @@ function renderMeme() {
 
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
     drawTxt()
-   
+    // drawRect()
+
 }
 
 function drawTxt() {
     const memes = getMeme();
+    var currLine = memes.selectedLineIdx;
     memes.lines.forEach(line => {
         var text = line.txt;
         gCtx.textBaseline = 'middle';
@@ -102,24 +104,24 @@ function onDeleteLine() {
     renderMeme();
 }
 
-// function drawRect() {
-//     const memes = getMeme();
-//     console.log(memes.lines);
-//     // var currLine = memes.selectedLineIdx
+function drawRect() {
+    const memes = getMeme();
+    console.log(memes.lines);
+    // var currLine = memes.selectedLineIdx
 
-//     memes.lines.forEach((line, idx) => {
-//         // console.log('currLine', currLine);
-//         if (idx === memes.selectedLineIdx) {
-//             var startHeight = line.y - line.size / 2
-//             var endHeight = startHeight + line.size / 2
+    const foundLine = memes.lines.find((line, idx) => {
+        // console.log('currLine', currLine);
+        return idx === memes.selectedLineIdx
 
-//             gCtx.rect(0, startHeight, gElCanvas.width, endHeight);
-//             gCtx.strokeStyle = '#1b1b1b';
-//             gCtx.stroke();
+    })
+    console.log('foundLine', foundLine);
+    var startHeight = foundLine.y - foundLine.size / 2
+    var endHeight = startHeight + foundLine.size / 2
 
-//         }
-//     })
-// }
+    gCtx.rect(0, startHeight, gElCanvas.width, endHeight);
+    gCtx.strokeStyle = '#1b1b1b';
+    gCtx.stroke();
+}
 
 
 
@@ -135,6 +137,6 @@ function onSetAlign(alignment) {
 
 function downloadCanvas(elLink) {
 
-    var imgContent = gElCanvas.toDataURL('image/png')
+    var imgContent = gElCanvas.toDataURL('image/.png')
     elLink.href = imgContent
 }
