@@ -75,13 +75,18 @@
                         <select class="font">
                             <option>Impact</option>
                         </select>
-                        <input class="fillColor" type="color" name="color" onchange="onSetFillColor(this)">
-                        <input class="strokeColor" type="color" name="color" onchange="onSetStrokeColor(this)">
+                        <button class = "fill"><input class="fillColor" type="color" name="color" onchange="onSetFillColor(this)"> 
+                            <img class = "img-fill" src="/icons/paint-board-and-brush.png"></button>
+                        <button class = "stroke">
+                            <input class="strokeColor" type="color" name="color" onchange="onSetStrokeColor(this)">
+                            <img class = "img-stroke" src="/icons/text stroke.png">
+                        </button>
                     </div>
                     <div>
-                        <button class="download">
-                            Download
-                        </button>
+                        <a href="#" class="btn" onclick="downloadImg(this)" download="my-canvas.jpg"><button
+                                class="download">
+                                Download
+                            </button></a>
                     </div>
 
             </div>

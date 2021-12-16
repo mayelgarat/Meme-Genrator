@@ -58,6 +58,7 @@ li {
 
 .grid-img {
     width: 100%;
+    cursor: pointer;
 }
 
 
@@ -97,9 +98,11 @@ li {
 
 
 button {
+
     font-family: monserrat;
     cursor: pointer;
-    height: 41px;
+    height: 40px;
+    width: 40px;
     margin-inline-end: 15px;
     margin-block-start: 15px;
     border: none;
@@ -108,12 +111,26 @@ button {
     padding: 6px;
 }
 
+.fill,
+.stroke {
+    transform: translateY(24px);
+}
+
+.img-fill {
+    transform: translateY(-190%);
+}
+
+.img-stroke {
+    transform: translateY(-191%);
+}
+
 input {
-    font-family: monserrat;
     margin-inline-end: 15px;
     margin-block-start: 15px;
     font-family: monserrat;
     font-size: 2rem;
+    border: none;
+
 }
 
 select {
@@ -149,9 +166,14 @@ button img {
     align-items: center;
 }
 
-.fillColor {
-    background-image: url('/icons/paint-board-and-brush.png');
+.fillColor,
+.strokeColor {
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    transform: translateY(-20px);
 }
+
 
 .download {
     background-color: #ff7f00;

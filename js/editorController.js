@@ -118,3 +118,11 @@ function onSetAlign(alignment) {
     renderMeme();
 
 }
+
+
+
+function downloadImg(elLink) {
+    var imgContent = gElCanvas.toDataURL('image/png')
+    elLink.href = imgContent
+}
+
