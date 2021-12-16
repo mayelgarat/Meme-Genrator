@@ -100,12 +100,16 @@ var gMeme = {
         colorStroke: 'black',
         x: 50,
         y: 50,
+        active: false
     }]
 }
 
 function setLineNum() {
+    if (gMeme.lines[gMeme.selectedLineIdx].txt === '') return
     gCurrLine++;
     gMeme.selectedLineIdx++
+    console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx);
+    console.log('gMeme', gMeme);
     document.querySelector('.text').value = ''
 }
 
@@ -138,6 +142,7 @@ function _setY(text, y) {
         colorStroke: 'black',
         x: 225,
         y: y,
+        active: false
     })
 }
 
@@ -153,6 +158,7 @@ function setImg(img) {
             colorStroke: 'black',
             x: 50,
             y: 50,
+            active: false
         }]
     }
     renderMeme();
@@ -174,3 +180,19 @@ function changeY(diff) {
     gMeme.lines[gMeme.selectedLineIdx].y += diff;
 }
 
+function switchLine() {
+    console.log('gCurrLine', gCurrLine);
+    console.log('gMeme', gMeme);
+    var length = gMeme.lines.length
+    if (gMeme.selectedLineIdx === length) gMeme.selectedLineIdx = -1;
+    ++gMeme.selectedLineIdx
+    // gMeme.lines.forEach((line, idx) => {
+    //     if (idx === gMeme.selectedLineIdx) line.active = true;
+    //     else line.active = false;
+    // })
+
+}
+
+function deleteLine() {
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1);
+}

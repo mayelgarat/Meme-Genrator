@@ -3,7 +3,6 @@ var gElCanvas;
 var gCtx;
 
 function init() {
-    console.log('starting...');
     document.querySelector('.editor').classList.add('hidden');
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
@@ -23,13 +22,13 @@ function renderMeme() {
     document.querySelector('.gallery').classList.add('hidden');
     document.querySelector('.editor').classList.remove('hidden');
 
+
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
     drawTxt()
 }
 
 function drawTxt() {
     const memes = getMeme();
-
     memes.lines.forEach(line => {
         var text = line.txt;
         gCtx.textBaseline = 'middle';
@@ -79,4 +78,37 @@ function onSetStrokeColor(color) {
 function onChangeY(diff) {
     changeY(diff);
     renderMeme();
+}
+
+function onSwitchLine() {
+    switchLine()
+    //  clearCanvas();
+    // renderMeme()
+    // drawRect();
+}
+
+function onDeleteLine() {
+    deleteLine();
+    renderMeme();
+}
+
+// function drawRect() {
+//     const memes = getMeme();
+//     var currLine = memes.selectedLineIdx
+//     // console.log('memes.lines[currLine].active', memes.lines[currLine].active);
+//     // if (!memes.lines[currLine].active) return
+//     var startHeight = memes.lines[currLine].y - memes.lines[currLine].size / 2
+//     var endHeight = startHeight + memes.lines[currLine].size / 2
+//     console.log('currLine', currLine);
+//     console.log('startHeight', startHeight);
+//     console.log('endHeight', endHeight);
+//     gCtx.rect(0, startHeight, gElCanvas.width, endHeight);
+//     gCtx.strokeStyle = '#1b1b1b';
+//     gCtx.stroke();
+// }
+
+
+
+function clearCanvas() {
+    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
 }
