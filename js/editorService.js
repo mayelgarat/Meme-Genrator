@@ -88,7 +88,7 @@ gImgs = [{
         keywords: ['happy', 'cute'],
     }
 ];
-
+var gCurrLine = 0;
 var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
@@ -96,7 +96,7 @@ var gMeme = {
         txt: ' ',
         size: 30,
         align: 'left',
-        colorFill: 'red',
+        colorFill: 'white',
         colorStroke: 'black',
         x: 50,
         y: 50,
@@ -104,7 +104,8 @@ var gMeme = {
 }
 
 function setLineNum() {
-    gLine++;
+    gCurrLine++;
+    gMeme.selectedLineIdx++
     document.querySelector('.text').value = ''
 }
 
@@ -113,31 +114,32 @@ function getMeme() {
 }
 
 function setLineTxt(text) {
-    if (gLine === gMeme.selectedLineIdx) {
-        gMeme.lines[gMeme.selectedLineIdx] = ({
-            txt: `${text}`,
-            size: 40,
-            align: 'center',
-            colorFill: 'white',
-            colorStroke: 'black',
-            x: 50,
-            y: 50,
-        })
+    if (gMeme.selectedLineIdx === 0) {
+        _setY(text, 50)
+    } else if (gMeme.selectedLineIdx === 1) {
+        _setY(text, 400)
     } else {
-        gMeme.selectedLineIdx++;
-        gMeme.lines.push({
-            txt: `${text}`,
-            size: 40,
-            align: 'center',
-            colorFill: 'white',
-            colorStroke: 'black',
-            x: 50,
-            y: 50,
-        })
+        if (gCurrLine === gMeme.selectedLineIdx) {
+            _setY(text, 225)
+        } else {
+            gMeme.selectedLineIdx++;
+            _setY(text, 225)
+        }
     }
     renderMeme();
 }
 
+function _setY(text, y) {
+    gMeme.lines[gMeme.selectedLineIdx] = ({
+        txt: `${text}`,
+        size: 40,
+        align: 'center',
+        colorFill: 'white',
+        colorStroke: 'black',
+        x: 225,
+        y: y,
+    })
+}
 
 function setImg(img) {
     gMeme = {
@@ -172,8 +174,3 @@ function changeY(diff) {
     gMeme.lines[gMeme.selectedLineIdx].y += diff;
 }
 
-// function setY() {
-//     if (gMeme.lines[gLine] === 0) y = 50;
-//     else if (gMeme.lines[gLine] === 1) y = gElCanvas.height - 50;
-//     else y = gElCanvas.height / 2;
-// }
