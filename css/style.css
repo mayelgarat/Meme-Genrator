@@ -3,19 +3,40 @@
     box-sizing: border-box;
 } */
 
+/* FONTS */
+
+@font-face {
+    font-family: 'monserrat';
+    src: url(/fonts/NewsCycle-Regular.ttf)
+}
+
+@font-face {
+    font-family: 'monserrat-medium';
+    src: url(/fonts/Montserrat-Medium.ttf)
+}
+
 body {
     margin: 0;
+    font-family: monserrat;
 }
+
+
 
 
 /* HEADER */
 .logo {
     width: 100px;
+    margin-block-start: 15px;
+}
+
+.header {
+    background-color: #ff7f00
 }
 
 li {
     cursor: pointer;
     margin-inline-end: 20px;
+    font-family: monserrat;
 
 }
 
@@ -47,31 +68,102 @@ li {
 
 .canvas-container {
     margin-inline-start: 50px;
-    background-color: lightslategrey;
-    height: 450px;
-    width: 450px;
+    height: 550px;
+    width: 550px;
 }
 
-button{
+#my-canvas {
+    margin-block-start: 15px;
+}
+
+.editor-container {
+    font-family: monserrat;
+    justify-content: space-around;
+    background-color: #e3e3e3;
+    height: 46rem;
+    align-items: center;
+}
+
+.text {
+    font-family: monserrat;
+    font-size: 1rem;
+    width: 279px;
+    min-height: 26px;
+    max-height: 27px;
+    border-radius: 0.5em;
+    background-color: white;
+    border: none;
+}
+
+
+button {
+    font-family: monserrat;
     cursor: pointer;
-    height: 40px;
-    width: 40px;
+    height: 41px;
+    margin-inline-end: 15px;
+    margin-block-start: 15px;
+    border: none;
+    background-color: white;
+    border-radius: 6px;
+    padding: 6px;
 }
 
-button img{
+input {
+    font-family: monserrat;
+    margin-inline-end: 15px;
+    margin-block-start: 15px;
+    font-family: monserrat;
+    font-size: 2rem;
+}
+
+select {
+    font-family: monserrat;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5em;
+    width: 7.7rem;
+    height: 30px;
+    margin-inline-end: 15px;
+}
+
+button img {
     height: 100%;
     width: 100%;
 }
-.form{
+
+.up,
+.down {
+    font-size: 2rem;
+    transform: translateY(11px);
+}
+
+.fas {
+
+    transform: translateY(-42%);
+}
+
+.form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.text-ontainer{
-    margin-block-end: 20px ;
+.fillColor {
+    background-image: url('/icons/paint-board-and-brush.png');
 }
+
+.download {
+    background-color: #ff7f00;
+    color: white;
+    font-family: monserrat-medium;
+    border-radius: 7px;
+    height: 50px;
+    width: 94px;
+    font-size: 1rem;
+
+}
+
 
 /* HELPERS */
 
@@ -82,7 +174,7 @@ button img{
 
 .clean-list {
     list-style-type: none;
- 
+
     padding: 0;
 }
 
@@ -100,4 +192,33 @@ button img{
 }
 
 .hidden {
-display: none;}
+    display: none;
+}
+
+
+/* FOOTER */
+.footer {
+    display: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #ff7f00;
+    position: fixed;
+    left: 0;
+    text-align: center;
+    height: 150px;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-container {
+    height: 200px;
+}
+
+small {
+    font-family: monserrat;
+}

@@ -98,7 +98,7 @@ var gMeme = {
         align: 'left',
         colorFill: 'white',
         colorStroke: 'black',
-        x: 50,
+        x: 225,
         y: 50,
         active: false
     }]
@@ -156,7 +156,7 @@ function setImg(img) {
             align: 'center',
             colorFill: 'white',
             colorStroke: 'black',
-            x: 50,
+            x: 225,
             y: 50,
             active: false
         }]
@@ -195,4 +195,11 @@ function switchLine() {
 
 function deleteLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1);
+}
+
+function setAlign(alignment) {
+    console.log('txt.length', gMeme.lines[gMeme.selectedLineIdx].txt.length);
+    if (alignment === 'left') gMeme.lines[gMeme.selectedLineIdx].x = 20 + gMeme.lines[gMeme.selectedLineIdx].txt.length * 10
+    else if (alignment === 'center') gMeme.lines[gMeme.selectedLineIdx].x = 275
+    else gMeme.lines[gMeme.selectedLineIdx].x = 530 - gMeme.lines[gMeme.selectedLineIdx].txt.length * 10
 }

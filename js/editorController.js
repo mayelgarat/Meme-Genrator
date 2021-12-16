@@ -38,8 +38,8 @@ function drawTxt() {
         gCtx.lineWidth = 2;
         gCtx.strokeStyle = `${line.colorStroke}`;
         gCtx.fillStyle = `${line.colorFill}`;
-        gCtx.fillText(text, gElCanvas.width / 2, line.y);
-        gCtx.strokeText(text, gElCanvas.width / 2, line.y);
+        gCtx.fillText(text, line.x, line.y);
+        gCtx.strokeText(text, line.x, line.y);
     })
 }
 
@@ -111,4 +111,10 @@ function onDeleteLine() {
 
 function clearCanvas() {
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
+}
+
+function onSetAlign(alignment) {
+    setAlign(alignment)
+    renderMeme();
+
 }
