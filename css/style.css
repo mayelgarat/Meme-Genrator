@@ -7,13 +7,17 @@
 
 @font-face {
     font-family: 'monserrat';
-    src: url(/fonts/NewsCycle-Regular.ttf)
+    src: url('../fonts/NewsCycle-Regular.ttf')
 }
 
 @font-face {
     font-family: 'monserrat-medium';
-    src: url(/fonts/Montserrat-Medium.ttf)
+    src: url('../fonts/Montserrat-Medium.ttf')
 }
+/* @font-face {
+    font-family: 'monserrat-medium';
+    src: url(/fonts/Montserrat-Medium.ttf)
+} */
 
 body {
     margin: 0;
@@ -71,6 +75,7 @@ li {
     margin-inline-start: 50px;
     height: 550px;
     width: 550px;
+    margin-top: 80px;
 }
 
 #my-canvas {
@@ -82,9 +87,11 @@ li {
     justify-content: space-around;
     background-color: #e3e3e3;
     height: 46rem;
-    align-items: center;
-}
 
+}
+.control-box{
+    margin-top: 80px;
+}
 .text {
     font-family: monserrat;
     font-size: 1rem;
@@ -183,6 +190,7 @@ button img {
     height: 50px;
     width: 94px;
     font-size: 1rem;
+    margin-block-start: 20px;
 
 }
 
