@@ -13,6 +13,7 @@ function goToGallery() {
     document.querySelector('.about').classList.remove('hidden');
 
 }
+
 function goToAbout() {
     document.querySelector('.gallery').classList.add('hidden');
     document.querySelector('.about').classList.remove('hidden');
@@ -27,4 +28,15 @@ function renderImgs() {
     </div>`
     }
     document.querySelector('.grid-container').innerHTML = str;
+}
+
+function onSetSortBy() {
+    var x = document.querySelectorAll("option").value
+    // if (!x) return;
+    console.log('x', x);
+
+
+    setSort(sortBy)
+    renderMeme();
+
 }

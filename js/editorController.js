@@ -139,7 +139,11 @@ function onSetAlign(alignment) {
 }
 
 function downloadCanvas(elLink) {
+    const data = gElCanvas.toDataURL()
+    elLink.href = data
+    elLink.download = 'my-canvas.jpg'
+}
 
-    var imgContent = gElCanvas.toDataURL('image/.png')
-    elLink.href = imgContent
+function onSave(){
+    save();
 }

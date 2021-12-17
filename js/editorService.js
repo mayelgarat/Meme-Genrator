@@ -213,3 +213,7 @@ function setAlign(alignment) {
     else if (alignment === 'center') gMeme.lines[gMeme.selectedLineIdx].x = 250
     else gMeme.lines[gMeme.selectedLineIdx].x = 440
 }
+
+function save(){
+
+}
