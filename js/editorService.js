@@ -129,7 +129,7 @@ function setLineTxt(text) {
     if (gMeme.selectedLineIdx === 0) {
         _setY(text, 50)
     } else if (gMeme.selectedLineIdx === 1) {
-        _setY(text,450)
+        _setY(text, 450)
     } else {
         if (gCurrLine === gMeme.selectedLineIdx) {
             _setY(text, 250)
@@ -189,15 +189,17 @@ function changeY(diff) {
 }
 
 function switchLine() {
-    console.log('gCurrLine', gCurrLine);
-    console.log('gMeme', gMeme);
-    var length = gMeme.lines.length
-    if (gMeme.selectedLineIdx === length) gMeme.selectedLineIdx = -1;
-    gMeme.selectedLineIdx++
-    gMeme.lines.forEach((line, idx) => {
-        if (idx === gMeme.selectedLineIdx) line.active = true;
-        else line.active = false;
-})
+
+    const length = gMeme.lines.length
+    if (length === 0) {
+        return
+    }
+
+    if (gMeme.selectedLineIdx === length - 1) gMeme.selectedLineIdx = 0;
+    else {
+        gMeme.selectedLineIdx++
+    }
+   
 }
 
 
@@ -207,7 +209,7 @@ function deleteLine() {
 
 function setAlign(alignment) {
     console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx);
-    if (alignment === 'left') gMeme.lines[gMeme.selectedLineIdx].x = 60 
+    if (alignment === 'left') gMeme.lines[gMeme.selectedLineIdx].x = 60
     else if (alignment === 'center') gMeme.lines[gMeme.selectedLineIdx].x = 250
     else gMeme.lines[gMeme.selectedLineIdx].x = 440
 }

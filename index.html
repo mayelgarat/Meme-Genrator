@@ -21,16 +21,15 @@
                 <ul class="flex">
                     <li class="clean-list" onclick="goToGallery()">Gallery</li>
                     <li class="clean-list"> Memes</li>
-                    <li class="clean-list">About</li>
+                    <li class="clean-list" onclick="goToAbout()">About</li>
                 </ul>
             </nav>
             <!-- <button class="toggle-menu-btn" onclick="toggleMenu()" alt="Open main menu">☰</button> -->
         </div>
     </header>
     <section class="gallery">
-        <div class = "datalist-container">
-            <img class="search" src="./icons/search-icon.png">
-            <input list="browsers">
+        <div class="datalist-container">
+            <input list="browsers" placeholder="enter search keywords">
 
             <datalist id="browsers">
                 <option value="funny">
@@ -41,6 +40,7 @@
                 <option value="happy">
                 <option value="sarcastic">
             </datalist>
+            <img class="search" src="./icons/search-icon.png">
         </div>
         <div class="gallery-container">
             <main>
@@ -50,10 +50,26 @@
                 </div>
             </main>
         </div>
-        <div class="about">
 
-        </div>
     </section>
+    <section class="about">
+        <div class="row">
+          <div class="col-img">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle" src="./img/me.jpg" alt="">
+              <h4>May Elgarat</h4>
+              <p class="text-muted">Full Stack Developer</p>
+            </div>
+          </div>
+          <div class="col-desc">
+            <p class="large text-muted  about-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
+              eaque, laboriosam veritatis, quos non quis ad perspiciatis,
+              totam corporis ea, alias ut unde. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque,
+              laboriosam veritatis, quos non quis ad perspiciatis,
+              totam corporis ea, alias ut unde.</p>
+          </div>
+        </div>
+      </section>
 
     <section class="editor">
         <div class="editor-container flex">
@@ -105,8 +121,7 @@
                     <div>
                         <button class="download"><a class="clean-link" href="#"
                                 onclick="downloadCanvas(this)">Download</a></button>
-                        <button class="download"><a class="clean-link" href="#"
-                                onclick="share(this)">Share</a></button>
+                        <button class="download"><a class="clean-link" href="#" onclick="share(this)">Share</a></button>
                     </div>
             </div>
             </form>

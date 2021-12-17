@@ -28,18 +28,17 @@ function renderMeme() {
     var meme = getMeme();
     var elImg = document.querySelector(`.img-${meme.selectedImgId}`);
     document.querySelector('.gallery').classList.add('hidden');
+    document.querySelector('.about').classList.add('hidden');
     document.querySelector('.editor').classList.remove('hidden');
 
 
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
     drawTxt()
-    // drawRect()
-
+    drawRect()
 }
 
 function drawTxt() {
     const memes = getMeme();
-    var currLine = memes.selectedLineIdx;
     memes.lines.forEach(line => {
         var text = line.txt;
         gCtx.textBaseline = 'middle';
@@ -93,9 +92,8 @@ function onChangeY(diff) {
 
 function onSwitchLine() {
     switchLine()
-    // clearCanvas();
     renderMeme();
-    // drawRect();
+
 
 }
 
@@ -107,20 +105,22 @@ function onDeleteLine() {
 function drawRect() {
     const memes = getMeme();
     console.log(memes.lines);
-    // var currLine = memes.selectedLineIdx
 
     const foundLine = memes.lines.find((line, idx) => {
-        // console.log('currLine', currLine);
         return idx === memes.selectedLineIdx
-
     })
-    console.log('foundLine', foundLine);
-    var startHeight = foundLine.y - foundLine.size / 2
-    var endHeight = startHeight + foundLine.size / 2
-
-    gCtx.rect(0, startHeight, gElCanvas.width, endHeight);
-    gCtx.strokeStyle = '#1b1b1b';
+    var gradient = gCtx.createLinearGradient(0, 0, gElCanvas.width, 0);
+    gradient.addColorStop("0", "magenta");
+    gradient.addColorStop("0.5", "blue");
+    gradient.addColorStop("1.0", "red");
+    var startHeight = foundLine.y - 20
+    var endHeight = 30
+    // gCtx.strokeStyle = '#1b1b1b';
+    gCtx.strokeStyle = gradient;
+    gCtx.beginPath();
+    gCtx.rect(100, startHeight, 300, endHeight);
     gCtx.stroke();
+    gCtx.closePath();
 }
 
 
@@ -132,7 +132,6 @@ function clearCanvas() {
 function onSetAlign(alignment) {
     setAlign(alignment)
     renderMeme();
-
 }
 
 function downloadCanvas(elLink) {

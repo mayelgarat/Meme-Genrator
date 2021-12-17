@@ -12,6 +12,12 @@ function goToGallery() {
     document.querySelector('.editor').classList.add('hidden');
 
 }
+function goToAbout() {
+    document.querySelector('.gallery').classList.add('hidden');
+    document.querySelector('.editor').classList.add('hidden');
+    document.querySelector('.about').classList.remove('hidden');
+
+}
 
 function renderImgs() {
     var str = ''
