@@ -38,6 +38,10 @@ html {
     margin-block-start: 15px;
 }
 
+
+header .logo{
+    cursor: pointer;
+}
 .header {
     background-color: #ff7f00
 }

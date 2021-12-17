@@ -109,16 +109,20 @@ function drawRect() {
     const foundLine = memes.lines.find((line, idx) => {
         return idx === memes.selectedLineIdx
     })
+    var textWidth = gCtx.measureText(foundLine.txt).width
+    var startWidth = foundLine.x - textWidth / 2
+    var endWidth = textWidth
+    // console.log('width', width);
     var gradient = gCtx.createLinearGradient(0, 0, gElCanvas.width, 0);
     gradient.addColorStop("0", "magenta");
     gradient.addColorStop("0.5", "blue");
     gradient.addColorStop("1.0", "red");
     var startHeight = foundLine.y - 20
-    var endHeight = 30
+    var endHeight = 40
     // gCtx.strokeStyle = '#1b1b1b';
     gCtx.strokeStyle = gradient;
     gCtx.beginPath();
-    gCtx.rect(100, startHeight, 300, endHeight);
+    gCtx.rect(startWidth, startHeight, endWidth, endHeight);
     gCtx.stroke();
     gCtx.closePath();
 }

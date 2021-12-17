@@ -10,12 +10,13 @@ function initGallery() {
 function goToGallery() {
     document.querySelector('.gallery').classList.remove('hidden');
     document.querySelector('.editor').classList.add('hidden');
+    document.querySelector('.about').classList.remove('hidden');
 
 }
 function goToAbout() {
     document.querySelector('.gallery').classList.add('hidden');
-    document.querySelector('.editor').classList.add('hidden');
     document.querySelector('.about').classList.remove('hidden');
+    document.querySelector('.editor').classList.add('hidden');
 
 }
 
