@@ -104,14 +104,12 @@ function drawRect() {
     var textWidth = gCtx.measureText(foundLine.txt).width
     var startWidth = foundLine.x - textWidth / 2
     var endWidth = textWidth
-
     var gradient = gCtx.createLinearGradient(0, 0, gElCanvas.width, 0);
     gradient.addColorStop("0", "magenta");
     gradient.addColorStop("0.5", "blue");
     gradient.addColorStop("1.0", "red");
     var startHeight = foundLine.y - 20
     var endHeight = 40
-
     gCtx.strokeStyle = gradient;
     gCtx.beginPath();
     gCtx.rect(startWidth, startHeight, endWidth, endHeight);
@@ -136,6 +134,3 @@ function downloadCanvas(elLink) {
     elLink.download = 'my-canvas.jpg'
 }
 
-function onSave() {
-    save();
-}

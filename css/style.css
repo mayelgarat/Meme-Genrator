@@ -74,7 +74,7 @@ li {
     display: grid;
     column-gap: 10px;
     row-gap: 10px;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 50% 50%;
 }
 
 .grid-img {

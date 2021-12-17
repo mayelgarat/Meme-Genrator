@@ -1,6 +1,6 @@
 'use strict'
 var gLine = 0;
-var gSavedMemes = [];
+
 
 // var gKeywordSearchCountMap = {
 //     'funny': countFunny(),
@@ -212,10 +212,4 @@ function setAlign(alignment) {
     if (alignment === 'left') gMeme.lines[gMeme.selectedLineIdx].x = 60
     else if (alignment === 'center') gMeme.lines[gMeme.selectedLineIdx].x = 250
     else gMeme.lines[gMeme.selectedLineIdx].x = 440
-}
-
-function save() {
-    gSavedMemes.push(gMeme)
-    console.log('gSavedMemes', gSavedMemes);
-    saveToStorage('MemesDB', gSavedMemes)
 }
