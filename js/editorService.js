@@ -1,5 +1,6 @@
 'use strict'
 var gLine = 0;
+var gSavedMemes = [];
 
 // var gKeywordSearchCountMap = {
 //     'funny': countFunny(),
@@ -169,6 +170,7 @@ function setImg(img) {
             active: false
         }]
     }
+    document.querySelector('.text').value = ''
     renderMeme();
 }
 
@@ -191,15 +193,13 @@ function changeY(diff) {
 function switchLine() {
 
     const length = gMeme.lines.length
-    if (length === 0) {
-        return
-    }
+    if (length === 0) return
 
     if (gMeme.selectedLineIdx === length - 1) gMeme.selectedLineIdx = 0;
     else {
         gMeme.selectedLineIdx++
     }
-   
+
 }
 
 
@@ -214,6 +214,8 @@ function setAlign(alignment) {
     else gMeme.lines[gMeme.selectedLineIdx].x = 440
 }
 
-function save(){
-
+function save() {
+    gSavedMemes.push(gMeme)
+    console.log('gSavedMemes', gSavedMemes);
+    saveToStorage('MemesDB', gSavedMemes)
 }

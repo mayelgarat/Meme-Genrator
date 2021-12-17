@@ -23,15 +23,13 @@ function resizeCanvas() {
     gElCanvas.height = elContainer.offsetHeight
 }
 
-
 function renderMeme() {
     var meme = getMeme();
     var elImg = document.querySelector(`.img-${meme.selectedImgId}`);
     document.querySelector('.gallery').classList.add('hidden');
     document.querySelector('.about').classList.add('hidden');
+    document.querySelector('.memes').classList.add('hidden');
     document.querySelector('.editor').classList.remove('hidden');
-
-
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
     drawTxt()
     drawRect()
@@ -62,12 +60,10 @@ function onSetLineTxt(elInput) {
     var text = elInput.value
     setLineTxt(text);
     renderMeme()
-
 }
 
 function onSubmitForm(ev) {
     ev.preventDefault();
-
 }
 
 function onChangeFontSize(diff) {
@@ -93,8 +89,6 @@ function onChangeY(diff) {
 function onSwitchLine() {
     switchLine()
     renderMeme();
-
-
 }
 
 function onDeleteLine() {
@@ -104,22 +98,20 @@ function onDeleteLine() {
 
 function drawRect() {
     const memes = getMeme();
-    console.log(memes.lines);
-
     const foundLine = memes.lines.find((line, idx) => {
         return idx === memes.selectedLineIdx
     })
     var textWidth = gCtx.measureText(foundLine.txt).width
     var startWidth = foundLine.x - textWidth / 2
     var endWidth = textWidth
-    // console.log('width', width);
+
     var gradient = gCtx.createLinearGradient(0, 0, gElCanvas.width, 0);
     gradient.addColorStop("0", "magenta");
     gradient.addColorStop("0.5", "blue");
     gradient.addColorStop("1.0", "red");
     var startHeight = foundLine.y - 20
     var endHeight = 40
-    // gCtx.strokeStyle = '#1b1b1b';
+
     gCtx.strokeStyle = gradient;
     gCtx.beginPath();
     gCtx.rect(startWidth, startHeight, endWidth, endHeight);
@@ -144,6 +136,6 @@ function downloadCanvas(elLink) {
     elLink.download = 'my-canvas.jpg'
 }
 
-function onSave(){
+function onSave() {
     save();
 }

@@ -20,7 +20,7 @@
             <nav id="mainMenu">
                 <ul class="flex">
                     <li class="clean-list" onclick="goToGallery()">Gallery</li>
-                    <li class="clean-list"> Memes</li>
+                    <li class="clean-list" onclick="goToMemes()"> Memes</li>
                     <li class="clean-list" onclick="goToAbout()">About</li>
                 </ul>
             </nav>
@@ -121,13 +121,22 @@
 
                     </div>
                     <div>
-                        <button class="download-btn"><a class = "clean-link" href="#" onclick="downloadCanvas(this)">Download</a></button>
+                        <button class="download-btn"><a class="clean-link" href="#"
+                                onclick="downloadCanvas(this)">Download</a></button>
                         <button class="share"><a class="clean-link" href="#" onclick="share(this)">Share</a></button>
                         <button class="save" onclick="onSave()">Save</button>
                     </div>
             </div>
             </form>
         </div>
+        </div>
+    </section>
+    <section class="memes">
+        <div class="memes-container">
+            <div class="grid-container-storage">
+                <!-- <canvas id="my-canvas-storage" height="200" width="200">
+                </canvas> -->
+            </div>
         </div>
     </section>
     <footer class="footer">
@@ -147,6 +156,8 @@
 <script src="js/storageService.js"></script>
 <script src="js/editorService.js"></script>
 <script src="js/editorController.js"></script>
+<script src="js/memesService.js"></script>
+<script src="js/memesController.js"></script>
 <script src="js/galleryController.js"></script>
 
 </html>

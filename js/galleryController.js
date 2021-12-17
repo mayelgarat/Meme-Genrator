@@ -3,19 +3,23 @@
 initGallery();
 
 function initGallery() {
+
     console.log('initGallery');
     renderImgs()
+    
 }
 
 function goToGallery() {
     document.querySelector('.gallery').classList.remove('hidden');
     document.querySelector('.editor').classList.add('hidden');
+    document.querySelector('.memes').classList.add('hidden');
     document.querySelector('.about').classList.remove('hidden');
 
 }
 
 function goToAbout() {
     document.querySelector('.gallery').classList.add('hidden');
+    document.querySelector('.memes').classList.add('hidden');
     document.querySelector('.about').classList.remove('hidden');
     document.querySelector('.editor').classList.add('hidden');
 
@@ -34,9 +38,7 @@ function onSetSortBy() {
     var x = document.querySelectorAll("option").value
     // if (!x) return;
     console.log('x', x);
-
-
     setSort(sortBy)
     renderMeme();
-
 }
+
