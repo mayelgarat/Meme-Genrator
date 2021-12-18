@@ -149,11 +149,11 @@ function canvasClicked(ev) {
 }
 
 function share() {
-   var url = gElCanvas.toDataURL();
+    const imgDataUrl = gElCanvas.toDataURL("image/jpeg");
     const shareData = {
         title: 'Canvas',
         text: 'Share Your Meme!',
-        url:url
+        url: imgDataUrl
     }
     console.log('shareData', shareData);
     const btn = document.querySelector('div .share');
@@ -169,3 +169,7 @@ function share() {
         }
     });
 }
+
+// function uploadImg() {
+
+// }
