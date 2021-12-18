@@ -16,7 +16,6 @@ function renderMemeStorage() {
     gMemesStorage = getSavedMemes()
     console.log('gMemesStorage', gMemesStorage);
     if (!gMemesStorage) return
-
     const strHtml = gMemesStorage.map(meme => {
         return `<canvas id="canvas-${meme.selectedImgId}" height="250" width="250">
 </canvas>`
@@ -36,7 +35,6 @@ function renderSavedImgs() {
         ctx.drawImage(img, 0, 0, gElSavedCanvas.width, gElSavedCanvas.height);
         drawTxtStorage()
     })
-
 }
 
 

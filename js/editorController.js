@@ -117,8 +117,6 @@ function drawRect() {
     gCtx.closePath();
 }
 
-
-
 function clearCanvas() {
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
 }
@@ -147,5 +145,5 @@ function canvasClicked(ev) {
         setClickedLine(clickedLine)
         renderMeme()
     }
-
 }
+

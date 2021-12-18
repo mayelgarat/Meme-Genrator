@@ -3,10 +3,8 @@
 initGallery();
 
 function initGallery() {
-
     console.log('initGallery');
     renderImgs()
-    
 }
 
 function goToGallery() {
@@ -14,7 +12,6 @@ function goToGallery() {
     document.querySelector('.editor').classList.add('hidden');
     document.querySelector('.memes').classList.add('hidden');
     document.querySelector('.about').classList.remove('hidden');
-
 }
 
 function goToAbout() {
@@ -22,23 +19,22 @@ function goToAbout() {
     document.querySelector('.memes').classList.add('hidden');
     document.querySelector('.about').classList.remove('hidden');
     document.querySelector('.editor').classList.add('hidden');
-
 }
 
 function renderImgs() {
-    var str = ''
-    for (var i = 1; i <= 18; i++) {
-        str += ` <div class="box box${i}"><img class="grid-img img-${i}"id=${i} src="./meme-imgs(square)/${i}.jpg" onclick="setImg(this)">
-    </div>`
-    }
-    document.querySelector('.grid-container').innerHTML = str;
+    var imgs = getMemesForDisplay()
+    console.log('imgs', imgs);
+    if (!imgs.length) imgs = getImgs()
+    console.log('imgs', imgs);
+    var str = imgs.map((img, i) => {
+        return `<div class="box box${i+1}"><img class="grid-img img-${img.id}"id=${i+1} src="./meme-imgs(square)/${img.url}" onclick="setImg(this)">
+  </div>`
+    })
+    // img src = "./meme-imgs(square)/1.jpg" >
+    document.querySelector('.grid-container').innerHTML = str.join('');
 }
 
-function onSetSortBy() {
-    var x = document.querySelectorAll("option").value
-    // if (!x) return;
-    console.log('x', x);
-    setSort(sortBy)
-    renderMeme();
+function onSetFilterBy(value) {
+    setFilterBy(value)
+    renderImgs()
 }
-

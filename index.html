@@ -29,18 +29,18 @@
     </header>
     <section class="gallery">
         <div class="datalist-container">
-            <input list="sort" placeholder="enter search keywords" oninput="onSetSortBy()">
-
-            <datalist id="sort" class="sort-by">
-                <option value="Funny">
-                <option value="Cute">
-                <option value="Dogs">
-                <option value="Cats">
-                <option value="Sad">
-                <option value="Happy">
-                <option value="Sarcastic">
-            </datalist>
-            <img class="search" src="./icons/search-icon.png">
+            <form>
+                <input list="sort" placeholder="enter search keywords" oninput="onSetFilterBy(this.value)">
+                <datalist id="sort" class="sort-by">
+                    <option value="All">
+                    <option value="funny">
+                    <option value="cute">
+                    <option value="dogs">
+                    <option value="cats">
+                    <option value="happy">
+                    <option value="sarcastic">
+                </datalist>
+            </form>
         </div>
         <div class="gallery-container">
             <main>
@@ -63,7 +63,7 @@
             </div>
             <div class="col-desc">
                 <p class="large text-muted  about-description">
-                    Hello :)  My name is May, I live in Herzliya and im 26 years old. <br>
+                    Hello :) My name is May, I live in Herzliya and im 26 years old. <br>
                     Im studying Full Stack Javascript at Coding Academy.
                     Im industrial management engineer. </p>
             </div>
@@ -134,6 +134,7 @@
                 <!-- <canvas id="my-canvas-storage" height="200" width="200">
                 </canvas> -->
             </div>
+
         </div>
     </section>
     <footer class="footer">
@@ -155,6 +156,7 @@
 <script src="js/editorController.js"></script>
 <script src="js/memesService.js"></script>
 <script src="js/memesController.js"></script>
+<script src="js/galleryService.js"></script>
 <script src="js/galleryController.js"></script>
 
 </html>

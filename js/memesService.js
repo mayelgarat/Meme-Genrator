@@ -4,7 +4,6 @@ var gSavedMemes;
 const STORAGE_KEY = 'MemesDB'
 gSavedMemes = loadFromStorage(STORAGE_KEY)
 console.log('gSavedMemes', gSavedMemes);
-
 function getSavedMemes() {
     return gSavedMemes;
 }
