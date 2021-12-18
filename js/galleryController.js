@@ -34,7 +34,8 @@ function renderImgs() {
     document.querySelector('.grid-container').innerHTML = str.join('');
 }
 
-function onSetFilterBy(value) {
+function onSetFilterBy(input) {
+var value = input.toLowerCase();
     setFilterBy(value)
     renderImgs()
 }
