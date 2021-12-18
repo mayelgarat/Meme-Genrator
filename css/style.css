@@ -124,13 +124,12 @@ form input{
 
 
 button {
-
     font-family: monserrat;
     cursor: pointer;
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     margin-inline-end: 15px;
-    margin-block-start: 15px;
+    margin-block-start: 8px;
     border: none;
     background-color: white;
     border-radius: 6px;
@@ -163,8 +162,9 @@ button img {
 
 .up,
 .down {
-    font-size: 2rem;
-    transform: translateY(11px);
+   
+    font-size: 23px;
+    transform: translateY(6px);
 }
 
 .fas {
