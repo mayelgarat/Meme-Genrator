@@ -14,7 +14,7 @@
 </head>
 
 <body onload="init()">
-    <div class = "main-screen" onclick="toggleMenu()"></div>
+    <div class="main-screen" onclick="toggleMenu()"></div>
     <header class="header">
         <div class="header-nav flex space-between">
             <div class="logo"><img class="img-logo" src="./LOGO/LOGO.png" onclick="goToGallery()"></div>
@@ -24,8 +24,8 @@
                     <li class="clean-list" onclick="goToMemes()"> Memes</li>
                     <li class="clean-list" onclick="goToAbout()">About</li>
                 </ul>
-           
-            <button class="btn-menu" onclick="toggleMenu()" >☰</button>
+
+                <button class="btn-menu" onclick="toggleMenu()">☰</button>
         </div>
     </header>
     <section class="gallery">
@@ -64,7 +64,7 @@
             </div>
             <div class="col-desc">
                 <p class="large text-muted  about-description">
-                    Hello :) <br> 
+                    Hello :) <br>
                     My name is May Elgarat, 26 years old, from Herzeliya. <br>
                     I study Full Stack Development (Javascript) at Coding Academy.<br>
                     I also have BSc in industrial management engineer. </p>
@@ -75,7 +75,7 @@
     <section class="editor">
         <div class="editor-container flex">
             <div class="canvas-container">
-                <canvas id="my-canvas" height="500" width="500" onclick="canvasClicked(event)">
+                <canvas id="my-canvas" height="450" width="450" onclick="canvasClicked(event)">
                 </canvas>
             </div>
             <div class="control-box">
@@ -117,7 +117,13 @@
                             <label for="fill"> <img class="img-fill" src="./icons/paint-board-and-brush.png"></label>
                         </button>
                         <input class="fillColor" id="fill" type="color" name="color" onchange="onSetFillColor(this)">
-
+                        <div class="stiker">
+                            <button class="happy" onclick="onSetLineSticker(this)">😀</button>
+                            <button class="sad" onclick="onSetLineSticker(this)">😟</button>
+                            <button class="heart" onclick="onSetLineSticker(this)">❤</button>
+                            <button class="baloon" onclick="onSetLineSticker(this)">🎈</button>
+                            <button class="ppiun" onclick="onSetLineSticker(this)">🎀</button>
+                        </div>
                     </div>
                     <div>
                         <button class="download-btn"><a class="clean-link" href="#"

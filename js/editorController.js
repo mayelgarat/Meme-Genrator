@@ -8,6 +8,8 @@ function init() {
     gCtx = gElCanvas.getContext('2d')
     // resizeCanvas()
     share()
+    // addMouseListeners()
+    // addTouchListeners()
 
 }
 
@@ -59,6 +61,7 @@ function onSetLine() {
 
 function onSetLineTxt(elInput) {
     var text = elInput.value
+    console.log();
     setLineTxt(text);
     renderMeme()
 }
@@ -200,4 +203,9 @@ function doUploadImg(imgDataUrl, onSuccess) {
         .catch((err) => {
             console.error(err)
         })
+}
+
+function onSetLineSticker(elBtn) {
+    console.log('elBtn', elBtn.innerText);
+    onSetLineTxt(elBtn.innerText)
 }

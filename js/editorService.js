@@ -17,7 +17,7 @@ var gMeme = {
         align: 'left',
         colorFill: 'white',
         colorStroke: 'black',
-        x: 250,
+        x: 225,
         y: 50,
 
     }]
@@ -39,16 +39,18 @@ function getMeme() {
 }
 
 function setLineTxt(text) {
+    console.log('text', text);
     if (gMeme.selectedLineIdx === 0) {
         _setY(text, 50)
+        console.log('text', text);
     } else if (gMeme.selectedLineIdx === 1) {
-        _setY(text, 450)
+        _setY(text, 400)
     } else {
         if (gCurrLine === gMeme.selectedLineIdx) {
-            _setY(text, 250)
+            _setY(text, 225)
         } else {
             // gMeme.selectedLineIdx++;
-            _setY(text, 250)
+            _setY(text, 225)
         }
     }
     renderMeme();
@@ -61,10 +63,11 @@ function _setY(text, y) {
         align: 'center',
         colorFill: 'white',
         colorStroke: 'black',
-        x: 250,
+        x: 225,
         y: y,
 
     })
+    console.log('gMeme', gMeme);
 }
 
 function setImg(img) {
@@ -117,9 +120,9 @@ function deleteLine() {
 
 function setAlign(alignment) {
     console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx);
-    if (alignment === 'left') gMeme.lines[gMeme.selectedLineIdx].x = 60
-    else if (alignment === 'center') gMeme.lines[gMeme.selectedLineIdx].x = 250
-    else gMeme.lines[gMeme.selectedLineIdx].x = 440
+    if (alignment === 'left') gMeme.lines[gMeme.selectedLineIdx].x = 40
+    else if (alignment === 'center') gMeme.lines[gMeme.selectedLineIdx].x = 225
+    else gMeme.lines[gMeme.selectedLineIdx].x = 400
 }
 
 function setClickedLine(clickedLine) {

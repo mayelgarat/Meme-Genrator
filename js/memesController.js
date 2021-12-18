@@ -16,7 +16,7 @@ function renderMemeStorage() {
     gMemesStorage = getSavedMemes()
     if (!gMemesStorage) return
     const strHtml = gMemesStorage.map(meme => {
-        return `<canvas id="canvas-${meme.selectedImgId}" height="250" width="250">
+        return `<canvas id="canvas-${meme.selectedImgId}" height="225" width="225">
 </canvas>`
     })
     document.querySelector('.grid-container-storage').innerHTML = strHtml.join('')
@@ -47,8 +47,8 @@ function drawTxtStorage() {
             ctx.lineWidth = 2;
             ctx.strokeStyle = `${line.colorStroke}`;
             ctx.fillStyle = `${line.colorFill}`;
-            ctx.fillText(text, line.x / 2 - ctx.measureText(text).width, line.y / 2);
-            ctx.strokeText(text, line.x / 2 - ctx.measureText(text).width, line.y / 2);
+            ctx.fillText(text, line.x / 2- ctx.measureText(text).width/2 , line.y / 2);
+            ctx.strokeText(text, line.x / 2 - ctx.measureText(text).width/2, line.y / 2);
         })
     })
 }
