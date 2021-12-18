@@ -192,6 +192,16 @@ button img {
     transform: translateY(-20px);
 }
 
+.fa-facebook-square:before {
+    content: "\f082";
+    font-size: 2rem;
+    color: rgb(86 115 191);
+    cursor: pointer;
+}
+.fab, .far {
+    font-weight: 400;
+    transform: translateY(7px);
+}
 
 .download-btn, .save, .share {
     background-color: #ff7f00;
