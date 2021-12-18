@@ -501,6 +501,9 @@ small {
         display: block;
 
     }
+    .share-container{
+        margin-bottom: 95px;
+    }
 }
 
 /* MEDIUM
