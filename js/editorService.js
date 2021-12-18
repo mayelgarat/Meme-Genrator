@@ -106,7 +106,7 @@ var gMeme = {
         colorStroke: 'black',
         x: 250,
         y: 50,
-        active: false
+
     }]
 }
 
@@ -151,7 +151,7 @@ function _setY(text, y) {
         colorStroke: 'black',
         x: 250,
         y: y,
-        active: false
+
     })
 }
 
@@ -167,7 +167,7 @@ function setImg(img) {
             colorStroke: 'black',
             x: 50,
             y: 50,
-            active: false
+
         }]
     }
     document.querySelector('.text').value = ''
@@ -212,4 +212,10 @@ function setAlign(alignment) {
     if (alignment === 'left') gMeme.lines[gMeme.selectedLineIdx].x = 60
     else if (alignment === 'center') gMeme.lines[gMeme.selectedLineIdx].x = 250
     else gMeme.lines[gMeme.selectedLineIdx].x = 440
+}
+
+function setClickedLine(clickedLine) {
+    console.log('set click...');
+    gMeme.selectedLineIdx = clickedLine
+    console.log('gMeme', gMeme);
 }

@@ -134,3 +134,18 @@ function downloadCanvas(elLink) {
     elLink.download = 'my-canvas.jpg'
 }
 
+function canvasClicked(ev) {
+    var memes = getMeme();
+    let clickedLine = null
+    clickedLine = memes.lines.findIndex(line => {
+        return ev.offsetX >= line.x - gCtx.measureText(line.txt).width && ev.offsetX <= line.x + gCtx.measureText(line.txt).width &&
+            ev.offsetY >= line.y - 30 && ev.offsetY <= line.y + 30
+    })
+    console.log('clickedLine', clickedLine);
+    if (clickedLine || clickedLine === 0) {
+        console.log('clickedLine', clickedLine);
+        setClickedLine(clickedLine)
+        renderMeme()
+    }
+
+}
