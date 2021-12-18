@@ -19,6 +19,7 @@ var gMeme = {
         colorStroke: 'black',
         x: 225,
         y: 50,
+        isDrag: false
 
     }]
 }
@@ -53,7 +54,7 @@ function setLineTxt(text) {
             _setY(text, 225)
         }
     }
-    renderMeme();
+    // renderMeme();
 }
 
 function _setY(text, y) {
@@ -65,6 +66,7 @@ function _setY(text, y) {
         colorStroke: 'black',
         x: 225,
         y: y,
+        isDrag: false
 
     })
     console.log('gMeme', gMeme);
@@ -82,6 +84,7 @@ function setImg(img) {
             colorStroke: 'black',
             x: 50,
             y: 50,
+            isDrag: false
         }]
     }
     document.querySelector('.text').value = ''
@@ -129,4 +132,15 @@ function setClickedLine(clickedLine) {
     console.log('set click...');
     gMeme.selectedLineIdx = clickedLine
     console.log('gMeme', gMeme);
+}
+
+
+function setLineDrag(clickedLine, isDrag) {
+    gMeme.lines[clickedLine].isDrag = isDrag
+}
+
+function moveLine(dx, dy) {
+    gMeme.lines[gClickedLine].x += dx
+    gMeme.lines[gClickedLine].y += dy
+
 }

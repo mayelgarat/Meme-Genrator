@@ -204,7 +204,7 @@ button img {
 
 .fa-facebook-square:before {
     content: "\f082";
-    font-size: 2rem;
+    font-size: 42px;
     color: rgb(86 115 191);
     cursor: pointer;
 }
@@ -212,7 +212,7 @@ button img {
 .fab,
 .far {
     font-weight: 400;
-    transform: translateY(7px);
+    transform: translateY(10px);
 }
 
 .download-btn,
@@ -232,8 +232,8 @@ button img {
 
 .control-box {
     /* position: static; */
-    margin-inline-start: 30px;
-    margin-block-start: 25px;
+    margin-inline-start: 85px;
+    margin-block-start: 20px;
 
 }
 
@@ -406,7 +406,8 @@ small {
     }
 
     .control-box {
-        margin-top: 80px;
+        margin-inline-start: 100px;
+        margin-block-start: 20px;
     }
 
     .grid-container {

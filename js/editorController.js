@@ -1,6 +1,8 @@
 'use strict'
+var gClickedLine = null;
 var gElCanvas;
 var gCtx;
+var gStartPos;
 
 function init() {
     document.querySelector('.editor').classList.add('hidden');
@@ -61,7 +63,7 @@ function onSetLine() {
 
 function onSetLineTxt(elInput) {
     var text = elInput.value
-    console.log();
+    console.log('text', text);
     setLineTxt(text);
     renderMeme()
 }
@@ -138,17 +140,17 @@ function downloadCanvas(elLink) {
 
 function canvasClicked(ev) {
     var memes = getMeme();
-    let clickedLine = null
-    clickedLine = memes.lines.findIndex(line => {
+    gClickedLine = null
+    gClickedLine = memes.lines.findIndex(line => {
         return ev.offsetX >= line.x - gCtx.measureText(line.txt).width && ev.offsetX <= line.x + gCtx.measureText(line.txt).width &&
             ev.offsetY >= line.y - 30 && ev.offsetY <= line.y + 30
     })
-    console.log('clickedLine', clickedLine);
-    if (clickedLine || clickedLine === 0) {
-        console.log('clickedLine', clickedLine);
-        setClickedLine(clickedLine)
+    if (gClickedLine || gClickedLine === 0) {
+        setClickedLine(gClickedLine)
         renderMeme()
+        return gClickedLine
     }
+
 }
 
 function share() {
@@ -204,8 +206,40 @@ function doUploadImg(imgDataUrl, onSuccess) {
             console.error(err)
         })
 }
-
 function onSetLineSticker(elBtn) {
     console.log('elBtn', elBtn.innerText);
     onSetLineTxt(elBtn.innerText)
+}
+
+function addMouseListeners() {
+    gElCanvas.addEventListener('mousemove', onMove)
+    gElCanvas.addEventListener('mousedown', onDown)
+    gElCanvas.addEventListener('mouseup', onUp)
+}
+
+function onDown() {
+    const memes = getMeme();
+    if (!gClickedLine) return
+    setLineDrag(gClickedLine, true)
+    gStartPos = {
+        x: memes.lines[gClickedLine].x,
+        y: memes.lines[gClickedLine].y
+    }
+    console.log('grabbing');
+}
+
+
+function onMove(ev) {
+    const memes = getMeme();
+    if (!memes.lines[gClickedLine].isDrag) return
+    const dx = memes.lines[gClickedLine].x - gStartPos.x
+    const dy = memes.lines[gClickedLine].y - gStartPos.y
+    moveCircle(dx, dy)
+    gStartPos = pos
+    renderCanvas()
+}
+
+function onUp() {
+    setLineDrag(gClickedLine, false)
+    document.body.style.cursor = 'grab'
 }
