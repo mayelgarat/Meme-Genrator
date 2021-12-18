@@ -83,7 +83,6 @@ gImgs = [{
 ];
 
 function setFilterBy(value) {
-    console.log('value', value);
     gFilterBy = value
 }
 

@@ -57,11 +57,9 @@ li {
     width: 100%;
 }
 
-/* GRID */
-/* .gallery{
-    /* display: none; */
-/* }  */
-
+form input{
+    font-size: 1.25rem;
+}
 .grid-container {
     display: grid;
     column-gap: 10px;
@@ -75,6 +73,8 @@ li {
     column-gap: 10px;
     row-gap: 10px;
     grid-template-columns: 50% 50%;
+    padding: 10px;
+    padding-bottom: 75px;
 }
 
 .grid-img {
@@ -90,12 +90,6 @@ li {
 .search {
     height: 30px;
 }
-
-
-/* CANVAS */
-/* .editor-container {
-    background-color: rgb(158, 160, 161);
-} */
 
 .canvas-container {
 

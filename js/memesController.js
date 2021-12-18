@@ -14,19 +14,16 @@ function goToMemes() {
 
 function renderMemeStorage() {
     gMemesStorage = getSavedMemes()
-    console.log('gMemesStorage', gMemesStorage);
     if (!gMemesStorage) return
     const strHtml = gMemesStorage.map(meme => {
         return `<canvas id="canvas-${meme.selectedImgId}" height="250" width="250">
 </canvas>`
     })
-    console.log('strHtml', strHtml);
     document.querySelector('.grid-container-storage').innerHTML = strHtml.join('')
 }
 
 
 function renderSavedImgs() {
-    console.log('gMemesStorage', gMemesStorage);
     if (gMemesStorage.length === 0) return
     gMemesStorage.forEach((meme) => {
         gElSavedCanvas = document.getElementById(`canvas-${meme.selectedImgId}`)

@@ -55,7 +55,6 @@ function onSetLine() {
     setLineNum()
 }
 
-
 function onSetLineTxt(elInput) {
     var text = elInput.value
     setLineTxt(text);
