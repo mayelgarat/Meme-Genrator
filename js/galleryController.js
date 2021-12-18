@@ -3,7 +3,6 @@
 initGallery();
 
 function initGallery() {
-    console.log('initGallery');
     renderImgs()
 }
 

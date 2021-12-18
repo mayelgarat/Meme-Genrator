@@ -63,7 +63,6 @@ function onSetLine() {
 
 function onSetLineTxt(elInput) {
     var text = elInput.value
-    console.log('text', text);
     setLineTxt(text);
     renderMeme()
 }
@@ -148,7 +147,6 @@ function canvasClicked(ev) {
     if (gClickedLine || gClickedLine === 0) {
         setClickedLine(gClickedLine)
         renderMeme()
-        return gClickedLine
     }
 
 }
@@ -160,11 +158,8 @@ function share() {
         text: 'Share Your Meme!',
         url: imgDataUrl
     }
-    console.log('shareData', shareData);
     const btn = document.querySelector('div .share');
     const resultPara = document.querySelector('.result');
-    console.log('btn', btn);
-    // Share must be triggered by "user activation"
     btn.addEventListener('click', async () => {
         try {
             await navigator.share(shareData)
@@ -206,40 +201,7 @@ function doUploadImg(imgDataUrl, onSuccess) {
             console.error(err)
         })
 }
+
 function onSetLineSticker(elBtn) {
-    console.log('elBtn', elBtn.innerText);
     onSetLineTxt(elBtn.innerText)
-}
-
-function addMouseListeners() {
-    gElCanvas.addEventListener('mousemove', onMove)
-    gElCanvas.addEventListener('mousedown', onDown)
-    gElCanvas.addEventListener('mouseup', onUp)
-}
-
-function onDown() {
-    const memes = getMeme();
-    if (!gClickedLine) return
-    setLineDrag(gClickedLine, true)
-    gStartPos = {
-        x: memes.lines[gClickedLine].x,
-        y: memes.lines[gClickedLine].y
-    }
-    console.log('grabbing');
-}
-
-
-function onMove(ev) {
-    const memes = getMeme();
-    if (!memes.lines[gClickedLine].isDrag) return
-    const dx = memes.lines[gClickedLine].x - gStartPos.x
-    const dy = memes.lines[gClickedLine].y - gStartPos.y
-    moveCircle(dx, dy)
-    gStartPos = pos
-    renderCanvas()
-}
-
-function onUp() {
-    setLineDrag(gClickedLine, false)
-    document.body.style.cursor = 'grab'
 }

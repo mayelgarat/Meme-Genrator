@@ -1,12 +1,6 @@
 'use strict'
 var gLine = 0;
 
-// var gKeywordSearchCountMap = {
-//     'funny': countFunny(),
-//     'cat': countCat(),
-//     'baby': countBaby()
-// }
-
 var gCurrLine = 0;
 var gMeme = {
     selectedImgId: 5,
@@ -18,20 +12,14 @@ var gMeme = {
         colorFill: 'white',
         colorStroke: 'black',
         x: 225,
-        y: 50,
-        isDrag: false
-
+        y: 50
     }]
 }
 
 function setLineNum() {
     if (gMeme.lines[gMeme.selectedLineIdx].txt === '') return
     gCurrLine++;
-
     gMeme.selectedLineIdx++
-
-    console.log('gCurrLine', gCurrLine);
-    console.log('gMeme', gMeme);
     document.querySelector('.text').value = ''
 }
 
@@ -40,21 +28,17 @@ function getMeme() {
 }
 
 function setLineTxt(text) {
-    console.log('text', text);
     if (gMeme.selectedLineIdx === 0) {
         _setY(text, 50)
-        console.log('text', text);
     } else if (gMeme.selectedLineIdx === 1) {
         _setY(text, 400)
     } else {
         if (gCurrLine === gMeme.selectedLineIdx) {
             _setY(text, 225)
         } else {
-            // gMeme.selectedLineIdx++;
             _setY(text, 225)
         }
     }
-    // renderMeme();
 }
 
 function _setY(text, y) {
@@ -65,11 +49,8 @@ function _setY(text, y) {
         colorFill: 'white',
         colorStroke: 'black',
         x: 225,
-        y: y,
-        isDrag: false
-
+        y: y
     })
-    console.log('gMeme', gMeme);
 }
 
 function setImg(img) {
@@ -83,8 +64,7 @@ function setImg(img) {
             colorFill: 'white',
             colorStroke: 'black',
             x: 50,
-            y: 50,
-            isDrag: false
+            y: 50
         }]
     }
     document.querySelector('.text').value = ''
@@ -122,25 +102,24 @@ function deleteLine() {
 }
 
 function setAlign(alignment) {
-    console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx);
     if (alignment === 'left') gMeme.lines[gMeme.selectedLineIdx].x = 40
     else if (alignment === 'center') gMeme.lines[gMeme.selectedLineIdx].x = 225
     else gMeme.lines[gMeme.selectedLineIdx].x = 400
 }
 
 function setClickedLine(clickedLine) {
-    console.log('set click...');
     gMeme.selectedLineIdx = clickedLine
-    console.log('gMeme', gMeme);
 }
 
-
-function setLineDrag(clickedLine, isDrag) {
-    gMeme.lines[clickedLine].isDrag = isDrag
-}
-
-function moveLine(dx, dy) {
-    gMeme.lines[gClickedLine].x += dx
-    gMeme.lines[gClickedLine].y += dy
-
+function setLineSticker(text) {
+    gMeme.lines.push({
+        text,
+        size: 50,
+        size: 30,
+        align: 'center',
+        colorFill: 'white',
+        colorStroke: 'black',
+        x: 50,
+        y: 50
+    })
 }

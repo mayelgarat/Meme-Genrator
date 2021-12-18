@@ -41,7 +41,6 @@ function drawTxtStorage() {
         ctx = gElSavedCanvas.getContext('2d')
         meme.lines.map(line => {
             var text = line.txt;
-            console.log('text', text);
             const fontSize = line.size / 2;
             ctx.font = `${fontSize}px impact`;
             ctx.lineWidth = 2;

@@ -68,10 +68,7 @@ form input {
 
 .grid-container {
     display: grid;
-    column-gap: 10px;
-    row-gap: 10px;
     grid-template-columns: 50% 50%;
-    /* grid-template-rows: 25% 25% 25% 25%; */
 }
 
 .grid-container-storage {
@@ -412,8 +409,6 @@ small {
 
     .grid-container {
         display: grid;
-        row-gap: 10px;
-        column-gap: 0px;
         grid-template-columns: 25% 25% 25% 25%;
         /* grid-template-rows: 25% 25% 25% 25%; */
     }
