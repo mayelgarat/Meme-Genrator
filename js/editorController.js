@@ -149,7 +149,7 @@ function canvasClicked(ev) {
 }
 
 function share() {
-    const imgDataUrl = gElCanvas.toDataURL(image/png);
+    const imgDataUrl = gElCanvas.toDataURL();
     const shareData = {
         title: 'Canvas',
         text: 'Share Your Meme!',
