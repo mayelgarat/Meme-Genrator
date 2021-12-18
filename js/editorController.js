@@ -67,6 +67,8 @@ function onSetLineTxt(elInput) {
     renderMeme()
 }
 
+
+
 function onSubmitForm(ev) {
     ev.preventDefault();
 }
@@ -203,5 +205,6 @@ function doUploadImg(imgDataUrl, onSuccess) {
 }
 
 function onSetLineSticker(elBtn) {
-    onSetLineTxt(elBtn.innerText)
+    setLineTxt(elBtn.innerText);
+    renderMeme()
 }
