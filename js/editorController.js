@@ -7,6 +7,8 @@ function init() {
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
     // resizeCanvas()
+    share()
+
 }
 
 function getCanvasHeight() {
@@ -146,3 +148,24 @@ function canvasClicked(ev) {
     }
 }
 
+function share() {
+   var url = gElCanvas.toDataURL();
+    const shareData = {
+        title: 'Canvas',
+        text: 'Share Your Meme!',
+        url:url
+    }
+    console.log('shareData', shareData);
+    const btn = document.querySelector('div .share');
+    const resultPara = document.querySelector('.result');
+    console.log('btn', btn);
+    // Share must be triggered by "user activation"
+    btn.addEventListener('click', async () => {
+        try {
+            await navigator.share(shareData)
+            resultPara.textContent = 'Meme shared successfully'
+        } catch (err) {
+            resultPara.textContent = 'Error: ' + err
+        }
+    });
+}
