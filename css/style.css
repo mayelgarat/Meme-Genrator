@@ -275,6 +275,7 @@ button img {
     margin-inline-start: 5px;
     background-color: transparent;
     transform: translateY(-4px);
+    font-size: 17px;
 }
 
 .sad,
@@ -283,6 +284,7 @@ button img {
 .baloon {
     background-color: transparent;
     transform: translateY(-4px);
+    font-size: 17px;
 }
 
 /* ABOUT */
