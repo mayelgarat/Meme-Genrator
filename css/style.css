@@ -65,6 +65,14 @@ li {
 form input {
     font-size: 1.25rem;
 }
+.uploadImg{
+
+    width: 100px;
+    background-color: #ff7f00;
+    color: white;
+    font-size: 16px;
+    line-height: 1;
+}
 
 .grid-container {
     display: grid;
@@ -275,10 +283,7 @@ button img {
     font-size: 17px;
 }
 
-.sad,
-.ppiun,
-.heart,
-.baloon {
+.sad, .ppiun, .heart, .baloon {
     background-color: transparent;
     transform: translateY(-4px);
     font-size: 17px;

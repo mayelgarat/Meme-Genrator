@@ -55,7 +55,7 @@ function _setY(text, y) {
     })
 }
 
-function setImg(img) {
+function initMeme(img) {
     gMeme = {
         selectedImgId: img.id,
         selectedLineIdx: 0,
@@ -71,7 +71,7 @@ function setImg(img) {
         }]
     }
     document.querySelector('.text').value = ''
-    renderMeme();
+    init();
 }
 
 function setFillColor(color) {

@@ -1,6 +1,6 @@
 'use strict'
 
-var gFilterBy = 'All';
+var gFilterBy = '';
 var gImgs;
 
 function getImgs() {
@@ -87,17 +87,9 @@ function setFilterBy(value) {
 }
 
 function getMemesForDisplay() {
-    if (gFilterBy === 'All') return gImgs;
+    if (gFilterBy === '') return gImgs;
     var gImgsFilter = gImgs.filter(img => {
-        return (
-            img.keywords[0] === 'funny' && gFilterBy === 'funny' || img.keywords[1] === 'funny' && gFilterBy === 'funny' ||
-            img.keywords[0] === 'cute' && gFilterBy === 'cute' || img.keywords[1] === 'cute' && gFilterBy === 'cute' ||
-            img.keywords[0] === 'dogs' && gFilterBy === 'dogs' || img.keywords[1] === 'dogs' && gFilterBy === 'dogs' ||
-            img.keywords[0] === 'cats' && gFilterBy === 'cats' || img.keywords[1] === 'cats' && gFilterBy === 'cats' ||
-            img.keywords[0] === 'crazy' && gFilterBy === 'crazy' || img.keywords[1] === 'crazy' && gFilterBy === 'crazy' ||
-            img.keywords[0] === 'sarcastic' && gFilterBy === 'sarcastic' || img.keywords[1] === 'sarcastic' && gFilterBy === 'sarcastic' ||
-            img.keywords[0] === 'happy' && gFilterBy === 'happy' || img.keywords[1] === 'happy' && gFilterBy === 'happy'
-        )
+        return img.keywords.filter(keyword => keyword.includes(gFilterBy)).length
     })
     return gImgsFilter
 }

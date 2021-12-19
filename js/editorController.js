@@ -6,11 +6,14 @@ var gStartPos;
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 
 function init() {
-    document.querySelector('.editor').classList.add('hidden');
+    document.querySelector('.gallery').classList.add('hidden');
+    document.querySelector('.about').classList.add('hidden');
+    document.querySelector('.memes').classList.add('hidden');
+    document.querySelector('.editor').classList.remove('hidden');
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
-    renderMeme()
     resizeCanvas()
+    renderMeme()
     share()
     addListeners()
 }
@@ -42,10 +45,6 @@ function resizeCanvas() {
 function renderMeme() {
     var meme = getMeme();
     var elImg = document.querySelector(`.img-${meme.selectedImgId}`);
-    document.querySelector('.gallery').classList.add('hidden');
-    document.querySelector('.about').classList.add('hidden');
-    document.querySelector('.memes').classList.add('hidden');
-    document.querySelector('.editor').classList.remove('hidden');
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
     drawTxt()
     drawRect()
@@ -67,7 +66,7 @@ function drawTxt() {
     })
 }
 
-function onSetLine() {
+function onAddLine() {
     setLineNum()
 }
 
