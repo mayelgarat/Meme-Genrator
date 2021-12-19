@@ -142,6 +142,10 @@ function onSetAlign(alignment) {
 }
 
 function downloadCanvas(elLink) {
+    var meme = getMeme();
+    var elImg = document.querySelector(`.img-${meme.selectedImgId}`);
+    gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
+    drawTxt()
     const data = gElCanvas.toDataURL()
     elLink.href = data
     elLink.download = 'my-canvas.jpg'
