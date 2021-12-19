@@ -65,7 +65,8 @@ li {
 form input {
     font-size: 1.25rem;
 }
-.uploadImg{
+
+.uploadImg {
 
     width: 100px;
     background-color: #ff7f00;
@@ -283,7 +284,10 @@ button img {
     font-size: 17px;
 }
 
-.sad, .ppiun, .heart, .baloon {
+.sad,
+.ppiun,
+.heart,
+.baloon {
     background-color: transparent;
     transform: translateY(-4px);
     font-size: 17px;
@@ -377,6 +381,11 @@ small {
 
 /* DESKTOP */
 @media screen and (min-width : 1070px) {
+
+    li:active {
+        text-decoration: underline;
+    }
+
     .header-nav {
         display: flex;
         justify-content: space-between;
@@ -459,6 +468,7 @@ small {
         /* width: 550px;
         height: 550px; */
     }
+
     .stiker {
         background-color: white;
         border-radius: 2rem;

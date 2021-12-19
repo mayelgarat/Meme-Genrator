@@ -3,6 +3,7 @@
 initGallery();
 
 function initGallery() {
+    document.querySelector('.editor').classList.add('hidden');
     renderImgs()
 }
 
