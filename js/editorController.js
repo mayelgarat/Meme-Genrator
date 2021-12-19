@@ -3,6 +3,7 @@ var gClickedLine = null;
 var gElCanvas;
 var gCtx;
 var gStartPos;
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 
 function init() {
     document.querySelector('.editor').classList.add('hidden');
@@ -10,8 +11,8 @@ function init() {
     gCtx = gElCanvas.getContext('2d')
     // resizeCanvas()
     share()
-    // addMouseListeners()
-    // addTouchListeners()
+    addMouseListeners()
+    addTouchListeners()
 
 }
 
@@ -66,7 +67,6 @@ function onSetLineTxt(elInput) {
     setLineTxt(text);
     renderMeme()
 }
-
 
 
 function onSubmitForm(ev) {
@@ -150,7 +150,6 @@ function canvasClicked(ev) {
         setClickedLine(gClickedLine)
         renderMeme()
     }
-
 }
 
 function share() {
@@ -174,7 +173,6 @@ function share() {
 
 function uploadImg() {
     const imgDataUrl = gElCanvas.toDataURL("image/jpeg");
-
     function onSuccess(uploadedImgUrl) {
         const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
         document.querySelector('.user-msg').innerText = `Your photo is available here: ${uploadedImgUrl}`
@@ -207,4 +205,58 @@ function doUploadImg(imgDataUrl, onSuccess) {
 function onSetLineSticker(elBtn) {
     setLineTxt(elBtn.innerText);
     renderMeme()
+}
+
+
+function addMouseListeners() {
+    gElCanvas.addEventListener('mousemove', onMove)
+    gElCanvas.addEventListener('mousedown', onDown)
+    gElCanvas.addEventListener('mouseup', onUp)
+}
+
+function addTouchListeners() {
+    gElCanvas.addEventListener('touchmove', onMove)
+    gElCanvas.addEventListener('touchstart', onDown)
+    gElCanvas.addEventListener('touchend', onUp)
+}
+
+function onDown(ev) {
+    const memes = getMeme();
+    const pos = getEvPos(ev)
+    // if (!memes.selectedLineIdx && !memes.selectedLineIdx===0 ) return
+    setLineDrag(true)
+    gStartPos = pos
+    document.body.style.cursor = 'grabbing'
+}
+
+function onMove(ev) {
+    const memes = getMeme();
+    if (!memes.lines[gMeme.selectedLineIdx].isDrag) return
+    const pos = getEvPos(ev)
+    const dx = pos.x - gStartPos.x
+    const dy = pos.y - gStartPos.y
+    moveLine(dx, dy)
+    gStartPos = pos
+    renderMeme()
+}
+
+function onUp() {
+    setLineDrag(false)
+    document.body.style.cursor = 'grab'
+}
+
+function getEvPos(ev) {
+    var pos = {
+        x: ev.offsetX,
+        y: ev.offsetY
+    }
+    if (gTouchEvs.includes(ev.type)) {
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft,
+            y: ev.pageY - ev.target.offsetTop
+        }
+    }
+    return pos
 }

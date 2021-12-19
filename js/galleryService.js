@@ -98,7 +98,7 @@ function getMemesForDisplay() {
             img.keywords[0] === 'sarcastic' && gFilterBy === 'sarcastic' || img.keywords[1] === 'sarcastic' && gFilterBy === 'sarcastic' ||
             img.keywords[0] === 'happy' && gFilterBy === 'happy' || img.keywords[1] === 'happy' && gFilterBy === 'happy'
         )
-
     })
     return gImgsFilter
 }
+

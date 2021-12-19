@@ -12,7 +12,8 @@ var gMeme = {
         colorFill: 'white',
         colorStroke: 'black',
         x: 225,
-        y: 50
+        y: 50,
+        isDrag: false
     }]
 }
 
@@ -49,7 +50,8 @@ function _setY(text, y) {
         colorFill: 'white',
         colorStroke: 'black',
         x: 225,
-        y: y
+        y: y,
+        isDrag: false
     })
 }
 
@@ -64,7 +66,8 @@ function setImg(img) {
             colorFill: 'white',
             colorStroke: 'black',
             x: 50,
-            y: 50
+            y: 50,
+            isDrag: false
         }]
     }
     document.querySelector('.text').value = ''
@@ -111,15 +114,28 @@ function setClickedLine(clickedLine) {
     gMeme.selectedLineIdx = clickedLine
 }
 
-function setLineSticker(text) {
+function setLineSticker(txt) {
     gMeme.lines.push({
-        text,
+        txt,
         size: 50,
         size: 30,
         align: 'center',
         colorFill: 'white',
         colorStroke: 'black',
         x: 50,
-        y: 50
+        y: 50,
+        isDrag: false
     })
 }
+
+
+
+function setLineDrag(isDrag) {
+    gMeme.lines[gMeme.selectedLineIdx].isDrag = isDrag
+}
+
+function moveLine(dx, dy) {
+    gMeme.lines[gMeme.selectedLineIdx].x += dx
+    gMeme.lines[gMeme.selectedLineIdx].y += dy
+}
+
