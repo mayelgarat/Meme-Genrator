@@ -9,11 +9,10 @@ function init() {
     document.querySelector('.editor').classList.add('hidden');
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
-    // resizeCanvas()
+    renderMeme()
+    resizeCanvas()
     share()
-    addMouseListeners()
-    addTouchListeners()
-
+    addListeners()
 }
 
 function getCanvasHeight() {
@@ -24,8 +23,18 @@ function getCanvasWidth() {
     return gElCanvas.width;
 }
 
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
+    window.addEventListener('resize', () => {
+        resizeCanvas()
+        // const center = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
+        renderMeme()
+    })
+}
+
 function resizeCanvas() {
-    var elContainer = document.querySelector('#my-canvas')
+    var elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.offsetWidth
     gElCanvas.height = elContainer.offsetHeight
 }
@@ -173,6 +182,7 @@ function share() {
 
 function uploadImg() {
     const imgDataUrl = gElCanvas.toDataURL("image/jpeg");
+
     function onSuccess(uploadedImgUrl) {
         const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
         document.querySelector('.user-msg').innerText = `Your photo is available here: ${uploadedImgUrl}`
@@ -218,12 +228,15 @@ function addTouchListeners() {
     gElCanvas.addEventListener('touchmove', onMove)
     gElCanvas.addEventListener('touchstart', onDown)
     gElCanvas.addEventListener('touchend', onUp)
+
 }
 
 function onDown(ev) {
+    canvasClicked(ev)
     const memes = getMeme();
     const pos = getEvPos(ev)
     // if (!memes.selectedLineIdx && !memes.selectedLineIdx===0 ) return
+    console.log('ev', ev);
     setLineDrag(true)
     gStartPos = pos
     document.body.style.cursor = 'grabbing'

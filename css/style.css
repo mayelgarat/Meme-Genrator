@@ -100,8 +100,8 @@ form input {
 
 .canvas-container {
 
-    height: 500px;
-    width: 500px;
+    height: 450px;
+    width: 400px;
     margin-top: -39px;
 }
 
@@ -115,8 +115,6 @@ form input {
     justify-content: center;
     align-items: center;
 }
-
-
 
 .text {
     font-family: monserrat;
@@ -229,8 +227,7 @@ button img {
 
 .control-box {
     /* position: static; */
-    margin-inline-start: 85px;
-    margin-block-start: 20px;
+    margin-block-start: 57px;
 
 }
 
@@ -404,7 +401,6 @@ small {
 
     .control-box {
         margin-inline-start: 100px;
-        margin-block-start: 20px;
     }
 
     .grid-container {
