@@ -39,24 +39,27 @@ var value = input.toLowerCase();
 
 
 
-// The next 2 functions handle IMAGE UPLOADING to img tag from file system: 
-function onImgInput(ev) {
-    loadImageFromInput(ev, renderImgs)
-}
+// // The next 2 functions handle IMAGE UPLOADING to img tag from file system: 
+// function onImgInput(ev) {
+//     loadImageFromInput(ev, renderImgs)
+// }
 
-function loadImageFromInput(ev, onImageReady) {
-    document.querySelector('.share-container').innerHTML = ''
-    var reader = new FileReader()
+// function loadImageFromInput(ev, onImageReady) {
+//     document.querySelector('.share-container').innerHTML = ''
+//     var reader = new FileReader()
 
-    reader.onload = (event) => {
-        console.log('onload');
-        var img = new Image()
-        // Render on canvas
-        img.onload = onImageReady.bind(null, img)
-        img.src = event.target.result
-    }
-    console.log('after');
-    reader.readAsDataURL(ev.target.files[0])
-}
+//     reader.onload = (event) => {
+//         console.log('onload');
+//         var img = new Image()
+//         // Render on canvas
+//         img.onload = onImageReady.bind(null, img)
+//         img.src = event.target.result
+//         console.log('img.src', img.src);
+//     }
+//     console.log('after');
+//     reader.readAsDataURL(ev.target.files[0])
+// }
+
+
 
 

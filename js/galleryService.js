@@ -94,3 +94,12 @@ function getMemesForDisplay() {
     return gImgsFilter
 }
 
+
+function addTogImg(img) {
+    console.log('img', img);
+    gImgs.push({
+        id: gImgs.length,
+        url: img.src,
+        keywords: ['', ''],
+    })
+}
